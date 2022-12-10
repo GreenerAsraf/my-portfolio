@@ -1,0 +1,23 @@
+.light__green__color{
+    color: #58e3c4 !important;;
+}
+.light__white__color{
+    color: #E6F1FF;
+}
+.fw-400{
+    font-weight: 400;
+}
+.section__title{
+    position: relative;
+    padding-bottom: 8px;
+}
+.section__title::before{
+    display: block;
+    content: "";
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    width: 75px;
+    height: 2px;
+    background-color: #58e3c4;
+}

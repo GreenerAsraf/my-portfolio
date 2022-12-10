@@ -1,0 +1,19 @@
+.card{
+    background-color: #172A45 !important;
+}
+.technology{
+    background: #4b5769;
+    margin-right: 4px;
+    margin-top: 4px;
+    border-radius: 3px;
+    padding: 3px 8px;
+    font-size: 13px;
+    height: 26px;
+    display: inline-block;
+}
+.home_work_card{
+    transition: all .2s linear;
+}
+.home_work_card:hover{   
+    transform: scale(1.03);
+}

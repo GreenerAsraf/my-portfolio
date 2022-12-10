@@ -1,0 +1,21 @@
+.work__title {
+  display: grid;
+  grid-template-columns: auto 1fr;
+  align-items: center;
+  column-gap: 30px;
+}
+.section__title__button{
+   
+}
+.section_title__button_container{
+    text-decoration: none !important;
+}
+.section_title__button_container::before {
+  z-index: -1;
+  content: "";
+  display: block;
+  height: 1px;
+  width: 65%;
+  background-color: #303c55;
+  position: relative;
+}

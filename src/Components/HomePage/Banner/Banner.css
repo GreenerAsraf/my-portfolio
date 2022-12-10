@@ -1,0 +1,49 @@
+.banner-section {
+  padding: 50px 0;
+  color: #e6f1ff;
+}
+.icons {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.icons::before,
+.icons::after {
+  content: "";
+  display: block;
+  width: 35%;
+  height: 1px;
+  background-color: #fff;
+}
+.icon {
+  width: 25px !important;
+  height: 25px;
+  margin: 0.8rem;
+  transition: all 0.3s ease-in-out;
+}
+.icon:hover {
+  transform: translateY(-3px);
+}
+.facebook {
+  background-color: #395185;
+  color: #fff;
+  border-radius: 5px;
+  padding: 2px;
+}
+.linkein {
+ color: #ccd6f6;
+ padding: 0;
+}
+.github { 
+  color: #ccd6f6;
+}
+.medium{
+  color: #ccd6f6;
+}
+
+@media only screen and (max-width : 576px){
+  .banner-section {
+    padding: 25px 0 50px;  
+  }
+}
