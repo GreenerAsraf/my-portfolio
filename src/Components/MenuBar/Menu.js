@@ -31,7 +31,7 @@ const Menu = () => {
             <Nav.Link activeClassName="active" as={NavLink} to="contact">
               Contact
             </Nav.Link>
-            <a href="">
+            <a href={"https://drive.google.com/file/d/1dGvygIl8YzuTfzAveymmQnuiiEcM2EYo/view"}  target="_blank" rel="noopener noreferrer">
               <Button variant="outline-success">Resume</Button>
             </a>
           </Nav>
