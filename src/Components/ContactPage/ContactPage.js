@@ -10,9 +10,10 @@ const ContactPage = () => {
     emailjs
       .sendForm(
         "gmail",
-        "template_kz1c6uq",
+        "service_0jbxlu6",
         e.target,
-        "user_iikwQ68Hfk6KErZFZNy0o"
+        "rHtvBbZ_lbS3OjOIH"
+        // "user_iikwQ68Hfk6KErZFZNy0o"
       )
       .then(
         (result) => {
