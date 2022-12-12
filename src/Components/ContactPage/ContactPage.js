@@ -1,20 +1,23 @@
-import React from "react";
+import React, { useRef } from "react";
 import { Form } from "react-bootstrap";
 import "./ContactPage.css";
 import emailjs from "emailjs-com";
 
 const ContactPage = () => {
+
+  const form = useRef();
+
   function sendEmail(e) {
     e.preventDefault();
 
-    emailjs
-      .sendForm(
-        "gmail",
-        "service_0jbxlu6",
-        e.target,
-        "rHtvBbZ_lbS3OjOIH"
-        // "user_iikwQ68Hfk6KErZFZNy0o"
-      )
+    // emailjs.sendForm(
+    //     "gmail",
+    //     "service_0jbxlu6",
+    //     e.target,
+    //     "rHtvBbZ_lbS3OjOIH"
+    //     // "user_iikwQ68Hfk6KErZFZNy0o"
+    //   )
+    emailjs.sendForm('service_0jbxlu6', 'template_gjnsofi', e.target, 'rHtvBbZ_lbS3OjOIH')
       .then(
         (result) => {
           alert(
