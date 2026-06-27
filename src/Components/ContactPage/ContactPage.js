@@ -1,17 +1,21 @@
+"use client";
+
 import React from "react";
 import { Form } from "react-bootstrap";
 import "./ContactPage.css";
 import emailjs from "emailjs-com";
 
 const ContactPage = () => {
-
-;
-
   function sendEmail(e) {
     e.preventDefault();
 
-
-    emailjs.sendForm('service_0jbxlu6', 'template_gjnsofi', e.target, 'rHtvBbZ_lbS3OjOIH')
+    emailjs
+      .sendForm(
+        "service_0jbxlu6",
+        "template_gjnsofi",
+        e.target,
+        "rHtvBbZ_lbS3OjOIH"
+      )
       .then(
         (result) => {
           alert(
@@ -30,7 +34,7 @@ const ContactPage = () => {
       <div className="col-md-6 mx-auto contact__form p-3 rounded px-4">
         <h2 className="light__white__color text-center mb-4">Get In Touch</h2>
         <Form onSubmit={sendEmail}>
-          <Form.Group controlId="exampleForm.ControlInput1">
+          <Form.Group controlId="contactName">
             <Form.Control
               type="text"
               placeholder="Your Name"
@@ -38,7 +42,7 @@ const ContactPage = () => {
               name="name"
             />
           </Form.Group>
-          <Form.Group controlId="exampleForm.ControlInput1">
+          <Form.Group controlId="contactEmail">
             <Form.Control
               type="email"
               placeholder="Your Email"
@@ -46,8 +50,7 @@ const ContactPage = () => {
               required
             />
           </Form.Group>
-
-          <Form.Group controlId="exampleForm.ControlTextarea1">
+          <Form.Group controlId="contactMessage">
             <Form.Control
               as="textarea"
               rows={3}

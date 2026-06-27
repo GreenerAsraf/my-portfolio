@@ -1,5 +1,38 @@
 import netflix from "../../resale-here.png";
+import skillbridgeImg from "../../Image/skillbridge_mockup.png";
+
 const portfolioData = [
+  {
+    name: "Skill Bridge",
+    Image: skillbridgeImg,
+    type: "Mern",
+    description: "A comprehensive platform to bridge skills. Use Admin Email: admin@example.com, Password: password123 to test.",
+    technologys: [
+      "React.js",
+      "Node.js",
+      "Express.js",
+      "MongoDB",
+      "TailwindCSS"
+    ],
+    links: [
+      {
+        linkType: "Demo",
+        link: "https://skill-bridge-client-pi.vercel.app/"
+      },
+      {
+        linkType: "Video",
+        link: "https://www.loom.com/share/f855e8f222b1468fa88fd56bcfb13328"
+      },
+      {
+        linkType: "Front-end",
+        link: "https://github.com/GreenerAsraf/skillBridge_client"
+      },
+      {
+        linkType: "Back-end",
+        link: "https://github.com/GreenerAsraf/skillBridge_backend"
+      }
+    ],
+  },
   {
     name: "Resale Laptop Website",
     Image: netflix,

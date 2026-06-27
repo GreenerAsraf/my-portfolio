@@ -1,5 +1,5 @@
 import React from "react";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 
 const GetInTouchHome = () => {
   return (
@@ -12,7 +12,7 @@ const GetInTouchHome = () => {
         you!
       </p>
       <div className="d-flex justify-content-center ">
-        <Link to="/contact">
+        <Link href="/contact">
           <button className="btn btn-outline-success mt-4">Say Hello</button>
         </Link>
       </div>

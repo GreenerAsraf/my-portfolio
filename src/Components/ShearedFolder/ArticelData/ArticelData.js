@@ -1,5 +1,4 @@
 import javascript from '../../../Image/Articel/javascript.jpeg'
-import es6 from "../../../Image/Articel/es6.jpg"
 
 const articelData = [
     {

@@ -1,7 +1,7 @@
 import "./App.css";
 import HomePage from "./Components/HomePage/HomePage";
 import "bootstrap/dist/css/bootstrap.min.css";
-import { BrowserRouter as Router, Switch, Route, Link } from "react-router-dom";
+import { BrowserRouter as Router, Switch, Route } from "react-router-dom";
 import Menu from "./Components/MenuBar/Menu";
 import About from "./Components/AboutPage/About";
 import Footer from "./Components/ShearedFolder/Footer/Footer";

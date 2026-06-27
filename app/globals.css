@@ -1,0 +1,61 @@
+/* =============================
+   Global Reset & Base Styles
+   (merged from index.css + App.css)
+   ============================= */
+
+/* Import Bootstrap */
+@import "bootstrap/dist/css/bootstrap.min.css";
+
+/* Google Font */
+@import url('https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&display=swap');
+
+* {
+  box-sizing: border-box;
+}
+
+body {
+  margin: 0;
+  font-family: 'Inter', -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
+    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
+    sans-serif;
+  -webkit-font-smoothing: antialiased;
+  -moz-osx-font-smoothing: grayscale;
+  background-color: #0A192F !important;
+  color: #ccd6f6;
+}
+
+code {
+  font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New', monospace;
+}
+
+/* =============================
+   Design Tokens (from App.css)
+   ============================= */
+
+.light__green__color {
+  color: #58e3c4 !important;
+}
+
+.light__white__color {
+  color: #E6F1FF;
+}
+
+.fw-400 {
+  font-weight: 400;
+}
+
+.section__title {
+  position: relative;
+  padding-bottom: 8px;
+}
+
+.section__title::before {
+  display: block;
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 75px;
+  height: 2px;
+  background-color: #58e3c4;
+}

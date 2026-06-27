@@ -1,6 +1,8 @@
+'use client';
+
 import React from "react";
 import { Button } from "react-bootstrap";
-import { Link } from "react-router-dom";
+import Link from "next/link";
 import "./SectionTitle.css";
 
 const SectionTitle = ({ colorText, headingText, buttonText, buttonLink }) => {
@@ -10,7 +12,10 @@ const SectionTitle = ({ colorText, headingText, buttonText, buttonLink }) => {
         <span className="light__green__color">{colorText}</span> {headingText}
       </h1>
       <div className="text-right">
-        <Link to={`${buttonLink || "/"}`} className="section_title__button_container d-flex align-items-center">
+        <Link
+          href={`${buttonLink || "/"}`}
+          className="section_title__button_container d-flex align-items-center"
+        >
           <Button className="section__title__button" variant="outline-success" size="sm">
             {buttonText}
           </Button>

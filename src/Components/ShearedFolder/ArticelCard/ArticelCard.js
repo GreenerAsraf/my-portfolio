@@ -1,3 +1,5 @@
+'use client';
+
 import React from 'react';
 import { Card } from "react-bootstrap";
 import './ArticelCard.css'
@@ -8,8 +10,8 @@ const ArticelCard = ({articelList}) => {
       };
     return (
         <div className="my-5 col-md-8 d-flex flex-wrap p-0">
-        {articelList.map((articel) => (
-          <a className="col-md-6 light__white__color mb-5 d-md-flex text-decoration-none some__articel__home" href={articel.link} target="_blank">
+        {articelList.map((articel, index) => (
+          <a key={`${articel.link}-${index}`} className="col-md-6 light__white__color mb-5 d-md-flex text-decoration-none some__articel__home" href={articel.link} target="_blank" rel="noopener noreferrer">
             <Card>
               <Card.Img variant="top" src={articel.image} />
               <Card.Body>

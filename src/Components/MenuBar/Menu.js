@@ -1,37 +1,66 @@
-import React, { useEffect, useState } from "react";
+"use client";
+
+import React from "react";
 import { Button, Nav, Navbar } from "react-bootstrap";
-import { NavLink } from "react-router-dom";
+import Link from "next/link";
+import { usePathname } from "next/navigation";
 import "./Menu.css";
 
 const Menu = () => {
- 
-  
+  const pathname = usePathname();
+
+  const isActive = (href) => pathname === href;
 
   return (
     <header className="mt-3 container-fluid">
-      <Navbar expand="md" className={`navbar-dark px-0`}>
-        <Navbar.Brand href="#home" className="logo light__white__color">
+      <Navbar expand="md" className="navbar-dark px-0">
+        <Link href="/" className="navbar-brand logo light__white__color">
           Sparkle Zone
-        </Navbar.Brand>
+        </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
           <Nav className="ml-auto">
-            <Nav.Link activeClassName="active" as={NavLink} to="/home">
+            <Link
+              href="/home"
+              className={`nav-link ${isActive("/home") || isActive("/") ? "active" : ""}`}
+            >
               Home
-            </Nav.Link>
-            <Nav.Link activeClassName="active" as={NavLink} to="/aboutMe">
+            </Link>
+            <Link
+              href="/about"
+              className={`nav-link ${isActive("/about") || isActive("/about") ? "active" : ""}`}
+            >
               About
-            </Nav.Link>
-            <Nav.Link activeClassName="active" as={NavLink} to="portfolio">
+            </Link>
+            <Link
+              href="/portfolio"
+              className={`nav-link ${isActive("/portfolio") ? "active" : ""}`}
+            >
               Portfolio
-            </Nav.Link>
-            <Nav.Link activeClassName="active" as={NavLink} to="blog">
+            </Link>
+            <Link
+              href="/pricing"
+              className={`nav-link ${isActive("/pricing") ? "active" : ""}`}
+            >
+              Pricing
+            </Link>
+            <Link
+              href="/blog"
+              className={`nav-link ${isActive("/blog") ? "active" : ""}`}
+            >
               Blog
-            </Nav.Link>
-            <Nav.Link activeClassName="active" as={NavLink} to="contact">
+            </Link>
+            <Link
+              href="/contact"
+              className={`nav-link ${isActive("/contact") ? "active" : ""}`}
+            >
               Contact
-            </Nav.Link>
-            <a href={"https://drive.google.com/file/d/1dGvygIl8YzuTfzAveymmQnuiiEcM2EYo/view"}  target="_blank" rel="noopener noreferrer">
+            </Link>
+            <a
+              href="https://drive.google.com/file/d/1dGvygIl8YzuTfzAveymmQnuiiEcM2EYo/view"
+              target="_blank"
+              rel="noopener noreferrer"
+            >
               <Button variant="outline-success">Resume</Button>
             </a>
           </Nav>

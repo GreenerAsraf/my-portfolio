@@ -1,0 +1,87 @@
+.pricing-section {
+  padding-bottom: 5rem;
+}
+
+.pricing-card {
+  background: rgba(25, 25, 35, 0.7);
+  backdrop-filter: blur(10px);
+  border: 1px solid rgba(255, 255, 255, 0.1);
+  border-radius: 15px;
+  color: #fff;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  position: relative;
+  overflow: hidden;
+}
+
+.pricing-card:hover {
+  transform: translateY(-10px);
+  box-shadow: 0 15px 30px rgba(0, 0, 0, 0.5);
+  border-color: rgba(255, 255, 255, 0.3);
+}
+
+.popular-card {
+  background: rgba(40, 40, 60, 0.8);
+  border: 1px solid #4a90e2;
+  box-shadow: 0 10px 25px rgba(74, 144, 226, 0.2);
+}
+
+.popular-badge {
+  position: absolute;
+  top: 15px;
+  right: -30px;
+  background: #4a90e2;
+  color: white;
+  padding: 5px 30px;
+  transform: rotate(45deg);
+  font-size: 0.8rem;
+  font-weight: bold;
+  box-shadow: 0 2px 4px rgba(0,0,0,0.2);
+}
+
+.plan-name {
+  font-size: 1.5rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 1px;
+  color: #adb5bd;
+}
+
+.popular-card .plan-name {
+  color: #fff;
+}
+
+.plan-price {
+  font-size: 3rem;
+  font-weight: 700;
+  color: #fff;
+}
+
+.plan-features li {
+  padding: 10px 0;
+  border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+  font-size: 1rem;
+  color: #ced4da;
+}
+
+.plan-features li:last-child {
+  border-bottom: none;
+}
+
+.check-icon {
+  color: #28a745;
+  margin-right: 8px;
+  font-weight: bold;
+}
+
+.pricing-btn {
+  border-radius: 30px;
+  padding: 10px 20px;
+  font-weight: 600;
+  letter-spacing: 0.5px;
+  transition: all 0.3s ease;
+}
+
+.pricing-btn.btn-outline-light:hover {
+  background-color: #fff;
+  color: #000;
+}
