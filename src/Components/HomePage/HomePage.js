@@ -8,9 +8,11 @@ import Skills from './Skills/Skills';
 import './HomePage.css';
 
 const backgrounds = [
-    '/carousel/bg1.png',
-    '/carousel/bg2.png',
-    '/carousel/bg3.png'
+    { url: '/carousel/bg1.png', position: 'center center' },
+    { url: '/carousel/bg2.png', position: 'center center' },
+    { url: '/carousel/bg3.png', position: 'center center' },
+    { url: '/carousel/bg4.JPG', position: 'center top' },
+    { url: '/profile-pic.JPG', position: 'center top' }
 ];
 
 const HomePage = () => {
@@ -28,9 +30,12 @@ const HomePage = () => {
         <div className="homepage-wrapper">
             {backgrounds.map((bg, index) => (
                 <div
-                    key={bg}
+                    key={bg.url}
                     className={`bg-layer ${index === bgIndex ? 'active' : ''}`}
-                    style={{ backgroundImage: `linear-gradient(rgba(10, 25, 47, 0.88), rgba(10, 25, 47, 0.95)), url('${bg}')` }}
+                    style={{ 
+                        backgroundImage: `linear-gradient(rgba(10, 25, 47, 0.88), rgba(10, 25, 47, 0.95)), url('${bg.url}')`,
+                        backgroundPosition: bg.position
+                    }}
                 ></div>
             ))}
             
