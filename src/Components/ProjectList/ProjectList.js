@@ -16,15 +16,15 @@ const portfolioData = [
     ],
     links: [
       {
-        linkType: "Demo",
+        linkType: "Live Site",
         link: "https://skill-bridge-client-pi.vercel.app/"
       },
       {
-        linkType: "Video",
+        linkType: "Video Description",
         link: "https://www.loom.com/share/f855e8f222b1468fa88fd56bcfb13328"
       },
       {
-        linkType: "Front-end",
+        linkType: "GitHub",
         link: "https://github.com/GreenerAsraf/skillBridge_client"
       },
       {
@@ -39,11 +39,11 @@ const portfolioData = [
     type: "React",
     technologys: ["React.js", "Firebase", "ReactcBootstrap"],
     links: [
-      { linkType: "Demo",
+      { linkType: "Live Site",
        link: "https://resale-here.web.app/" 
       },
       {
-        linkType: "Front-end",
+        linkType: "GitHub",
         link: "https://github.com/GreenerAsraf/resale-here",
       },
     ],
@@ -54,11 +54,11 @@ const portfolioData = [
     type: "Mern",
     technologys: ["React.js", "Firebase", "React-Bootstrap"],
     links: [
-      { linkType: "Demo", 
+      { linkType: "Live Site", 
       link: "https://advoza-a0c0b.web.app/" 
     },
       {
-        linkType: "Front-end",
+        linkType: "GitHub",
         link: "https://github.com/GreenerAsraf/advoza-the-law-firm",
       },
       {
