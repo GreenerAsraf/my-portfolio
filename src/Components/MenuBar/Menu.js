@@ -15,7 +15,7 @@ const Menu = () => {
     <header className="mt-3 container-fluid">
       <Navbar expand="md" className="navbar-dark px-0">
         <Link href="/" className="navbar-brand logo light__white__color">
-          Sparkle Zone
+          &lt;Asraf.dev /&gt;
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">

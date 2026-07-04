@@ -1,50 +1,53 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import Banner from './Banner/Banner';
+import React from 'react';
+import { motion } from 'framer-motion';
+import HeroCarousel from './HeroCarousel/HeroCarousel';
 import GetInTouchHome from './GetInTocuchHome/GetInTouchHome';
 import SomeArticels from './SomeArticels/SomeArticels';
 import SomeWork from './SomeWork/SomeWork';
 import Skills from './Skills/Skills';
 import './HomePage.css';
 
-const backgrounds = [
-    { url: '/carousel/bg1.png', position: 'center center' },
-    { url: '/carousel/bg2.png', position: 'center center' },
-    { url: '/carousel/bg3.png', position: 'center center' },
-    { url: '/carousel/bg4.JPG', position: 'center top' },
-    { url: '/profile-pic.JPG', position: 'center top' }
-];
-
-const HomePage = () => {
-    const [bgIndex, setBgIndex] = useState(0);
-
-    useEffect(() => {
-        // Change background image every 6 seconds
-        const interval = setInterval(() => {
-            setBgIndex((prevIndex) => (prevIndex + 1) % backgrounds.length);
-        }, 6000); 
-        return () => clearInterval(interval);
-    }, []);
+// Reusable scroll-reveal wrapper
+const FadeInSection = ({ children, delay = 0, direction = "up" }) => {
+    const yOffset = direction === "up" ? 50 : direction === "down" ? -50 : 0;
+    const xOffset = direction === "left" ? 60 : direction === "right" ? -60 : 0;
 
     return (
+        <motion.div
+            initial={{ opacity: 0, y: yOffset, x: xOffset }}
+            whileInView={{ opacity: 1, y: 0, x: 0 }}
+            viewport={{ once: true, margin: "-80px" }}
+            transition={{ duration: 0.75, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
+        >
+            {children}
+        </motion.div>
+    );
+};
+
+const HomePage = () => {
+    return (
         <div className="homepage-wrapper">
-            {backgrounds.map((bg, index) => (
-                <div
-                    key={bg.url}
-                    className={`bg-layer ${index === bgIndex ? 'active' : ''}`}
-                    style={{ 
-                        backgroundImage: `linear-gradient(rgba(10, 25, 47, 0.88), rgba(10, 25, 47, 0.95)), url('${bg.url}')`,
-                        backgroundPosition: bg.position
-                    }}
-                ></div>
-            ))}
-            
+            {/* Hero Carousel — full viewport */}
+            <HeroCarousel />
+
+            {/* Page content sections with staggered scroll-reveal */}
             <div className="homepage-content">
-                <Banner />
-                <Skills />
-                <SomeWork />
-                <SomeArticels />
-                <GetInTouchHome />
+                <FadeInSection direction="up" delay={0}>
+                    <Skills />
+                </FadeInSection>
+
+                <FadeInSection direction="up" delay={0.05}>
+                    <SomeWork />
+                </FadeInSection>
+
+                <FadeInSection direction="up" delay={0.05}>
+                    <SomeArticels />
+                </FadeInSection>
+
+                <FadeInSection direction="up" delay={0.05}>
+                    <GetInTouchHome />
+                </FadeInSection>
             </div>
         </div>
     );

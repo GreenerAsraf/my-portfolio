@@ -1,19 +1,109 @@
-.navbar-light .navbar-nav .nav-link {
+/* Nav links */
+.nav-link {
   color: #ccd6f6 !important;
-  margin-right: 1.5rem;
-  transition: all 0.3s ease-in-out;
+  margin-right: 1.2rem;
+  font-size: 0.92rem;
+  font-weight: 500;
+  letter-spacing: 0.3px;
+  transition: color 0.25s ease;
+  position: relative;
+  padding-bottom: 4px !important;
 }
-.navbar-light .navbar-nav .nav-link:hover {
+
+.nav-link::after {
+  content: "";
+  position: absolute;
+  bottom: 0;
+  left: 0;
+  width: 0;
+  height: 2px;
+  background: #58e3c4;
+  border-radius: 2px;
+  transition: width 0.25s ease;
+}
+
+.nav-link:hover {
   color: #58e3c4 !important;
 }
-.active {
-  text-decoration: overline !important;
-  text-decoration-color: #58e3c4 !important;
+
+.nav-link:hover::after,
+.nav-link.active::after {
+  width: 100%;
 }
+
+/* Active link — teal underline instead of overline */
+.nav-link.active {
+  color: #58e3c4 !important;
+  text-decoration: none !important;
+}
+
+/* Logo */
 .logo {
   color: #ccd6f6 !important;
   font-weight: 700;
+  font-size: 1.1rem;
+  letter-spacing: -0.3px;
+  text-decoration: none !important;
+  transition: color 0.2s;
 }
-.navbar-collapse  {
-  text-align: center !important;
+
+.logo:hover {
+  color: #58e3c4 !important;
+}
+
+/* Navbar base */
+.navbar {
+  background: transparent;
+}
+
+/* Mobile collapsed menu — glass dark panel */
+@media (max-width: 767px) {
+  .navbar-collapse {
+    background: rgba(10, 25, 47, 0.97);
+    backdrop-filter: blur(12px);
+    -webkit-backdrop-filter: blur(12px);
+    border: 1px solid rgba(88, 227, 196, 0.1);
+    border-radius: 12px;
+    padding: 16px 20px;
+    margin-top: 10px;
+  }
+
+  .nav-link {
+    margin-right: 0 !important;
+    padding: 10px 0 !important;
+    border-bottom: 1px solid rgba(255, 255, 255, 0.05);
+    text-align: center;
+    display: block;
+  }
+
+  .nav-link:last-of-type {
+    border-bottom: none;
+  }
+
+  .nav-link::after {
+    display: none;
+  }
+
+  /* Resume button on mobile */
+  .navbar-collapse a[target="_blank"] {
+    display: block;
+    margin-top: 12px;
+    text-align: center;
+  }
+
+  .navbar-collapse a[target="_blank"] .btn {
+    width: 100%;
+    max-width: 200px;
+  }
+}
+
+/* Hamburger icon color */
+.navbar-toggler {
+  border-color: rgba(88, 227, 196, 0.4) !important;
+  outline: none !important;
+  box-shadow: none !important;
+}
+
+.navbar-toggler-icon {
+  filter: invert(1);
 }

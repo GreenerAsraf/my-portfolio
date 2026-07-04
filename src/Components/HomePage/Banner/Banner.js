@@ -6,6 +6,7 @@ import { FontAwesomeIcon } from "@fortawesome/react-fontawesome";
 import "./Banner.css";
 import { Button } from "react-bootstrap";
 import Link from "next/link";
+import { motion } from "framer-motion";
 
 const Banner = () => {
   const typedRef = useRef(null);
@@ -37,7 +38,12 @@ const Banner = () => {
   }, []);
 
   return (
-    <div className="container banner-section">
+    <motion.div 
+      initial={{ opacity: 0, y: 30 }} 
+      animate={{ opacity: 1, y: 0 }} 
+      transition={{ duration: 0.8 }}
+      className="container banner-section"
+    >
       <div className="row">
         <div className="col-md-6">
           <h5 className="light__green__color fw-400">Hello I'm </h5>
@@ -81,7 +87,7 @@ const Banner = () => {
           </a>
         ))}
       </div>
-    </div>
+    </motion.div>
   );
 };
 

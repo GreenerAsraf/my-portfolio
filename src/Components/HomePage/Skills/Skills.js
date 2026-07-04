@@ -12,6 +12,7 @@ import {
 } from '@fortawesome/free-brands-svg-icons';
 import { faDatabase, faServer, faDesktop } from '@fortawesome/free-solid-svg-icons';
 import SectionTitle from '../../ShearedFolder/SectionTitle/SectionTitle';
+import { motion } from 'framer-motion';
 
 const skillCategories = [
   {
@@ -50,19 +51,70 @@ const skillCategories = [
 const Skills = () => {
   return (
     <section className="skills-section container">
-     
-      
-      <div className="skills-intro">
-        <p>
-          I specialize in full-stack web development with a strong focus on modern JavaScript frameworks. 
-          Here is a detailed breakdown of my technical expertise and the tools I use to build scalable, 
-          high-performance applications.
-        </p>
-      </div>
+
+      <motion.div
+        className="skills-intro"
+        initial={{ opacity: 0, y: 30 }}
+        whileInView={{ opacity: 1, y: 0 }}
+        viewport={{ once: true }}
+        transition={{ duration: 0.7, ease: 'easeOut' }}
+      >
+        {/* Label */}
+        <motion.span
+          className="skills-label"
+          initial={{ opacity: 0, letterSpacing: '6px' }}
+          whileInView={{ opacity: 1, letterSpacing: '3px' }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.1 }}
+        >
+          Technical Expertise
+        </motion.span>
+
+        {/* Main headline with gradient words */}
+        <motion.h2
+          className="skills-heading"
+          initial={{ opacity: 0, y: 20 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.65, delay: 0.2 }}
+        >
+          Full-Stack{' '}
+          <span className="skills-heading-gradient">Developer</span>
+          {' '}by Craft
+        </motion.h2>
+
+        {/* Animated divider */}
+        <motion.div
+          className="skills-divider"
+          initial={{ width: 0, opacity: 0 }}
+          whileInView={{ width: '80px', opacity: 1 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.7, delay: 0.35, ease: 'easeOut' }}
+        />
+
+        {/* Subtitle */}
+        <motion.p
+          className="skills-subtitle"
+          initial={{ opacity: 0, y: 12 }}
+          whileInView={{ opacity: 1, y: 0 }}
+          viewport={{ once: true }}
+          transition={{ duration: 0.6, delay: 0.45 }}
+        >
+          Specializing in modern JavaScript ecosystems — from pixel-perfect UIs
+          to scalable, production-ready back-end architectures.
+        </motion.p>
+      </motion.div>
 
       <div className="expertise-container">
         {skillCategories.map((category, index) => (
-          <div className="expertise-category" key={index}>
+          <motion.div 
+            className="expertise-category" 
+            key={index}
+            initial={{ opacity: 0, scale: 0.95 }}
+            whileInView={{ opacity: 1, scale: 1 }}
+            viewport={{ once: true }}
+            transition={{ duration: 0.5, delay: index * 0.2 }}
+          >
             <div className="category-header">
               <div className="category-icon-wrapper">
                 <FontAwesomeIcon icon={category.icon} className="category-icon" />
@@ -89,7 +141,7 @@ const Skills = () => {
                 </div>
               ))}
             </div>
-          </div>
+          </motion.div>
         ))}
       </div>
     </section>

@@ -1,10 +1,9 @@
 import netflix from "../../resale-here.png";
-import skillbridgeImg from "../../Image/skillbridge_mockup.png";
 
 const portfolioData = [
   {
     name: "Skill Bridge",
-    Image: skillbridgeImg,
+    Image: "/skillbridge-snapshot.png",
     type: "Mern",
     description: "A comprehensive platform to bridge skills. Use Admin Email: admin@example.com, Password: password123 to test.",
     technologys: [
