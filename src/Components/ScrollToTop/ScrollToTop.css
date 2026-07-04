@@ -1,0 +1,81 @@
+.scroll-top-btn {
+  position: fixed;
+  bottom: 32px;
+  right: 32px;
+  z-index: 9998;
+  width: 48px;
+  height: 48px;
+  border-radius: 50%;
+  border: none;
+  cursor: pointer;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+
+  /* Glassmorphism */
+  background: rgba(88, 227, 196, 0.12);
+  backdrop-filter: blur(16px) saturate(1.8);
+  -webkit-backdrop-filter: blur(16px) saturate(1.8);
+  box-shadow:
+    0 4px 24px rgba(88, 227, 196, 0.25),
+    inset 0 1px 0 rgba(255, 255, 255, 0.15),
+    0 0 0 1px rgba(88, 227, 196, 0.25);
+
+  color: #58e3c4;
+  transition: box-shadow 0.3s ease;
+}
+
+.scroll-top-btn:hover {
+  box-shadow:
+    0 8px 32px rgba(88, 227, 196, 0.45),
+    inset 0 1px 0 rgba(255, 255, 255, 0.2),
+    0 0 0 1px rgba(88, 227, 196, 0.5);
+}
+
+.scroll-top-btn svg {
+  width: 20px;
+  height: 20px;
+  position: relative;
+  z-index: 1;
+}
+
+/* Animated glow ring */
+.scroll-top-ring {
+  position: absolute;
+  inset: -3px;
+  border-radius: 50%;
+  background: conic-gradient(from 0deg, #58e3c4, #a78bfa, #38bdf8, #58e3c4);
+  opacity: 0;
+  transition: opacity 0.3s ease;
+  animation: spinRing 3s linear infinite;
+  mask: radial-gradient(transparent 60%, black 61%);
+  -webkit-mask: radial-gradient(transparent 60%, black 61%);
+}
+
+.scroll-top-btn:hover .scroll-top-ring {
+  opacity: 1;
+}
+
+@keyframes spinRing {
+  to { transform: rotate(360deg); }
+}
+
+/* Light mode */
+[data-theme='light'] .scroll-top-btn {
+  background: rgba(13, 148, 136, 0.1);
+  color: #0d9488;
+  box-shadow:
+    0 4px 20px rgba(13, 148, 136, 0.2),
+    inset 0 1px 0 rgba(255, 255, 255, 0.4),
+    0 0 0 1px rgba(13, 148, 136, 0.2);
+}
+
+/* Mobile — smaller & pushed left of messenger chat */
+@media (max-width: 576px) {
+  .scroll-top-btn {
+    bottom: 24px;
+    right: 80px;
+    width: 42px;
+    height: 42px;
+  }
+}

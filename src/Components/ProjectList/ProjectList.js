@@ -1,5 +1,3 @@
-import netflix from "../../resale-here.png";
-
 const portfolioData = [
   {
     name: "Skill Bridge",
@@ -34,41 +32,28 @@ const portfolioData = [
   },
   {
     name: "Resale Laptop Website",
-    Image: netflix,
+    Image: "/resale-here.png",
     type: "React",
-    technologys: ["React.js", "Firebase", "ReactcBootstrap"],
+    technologys: ["React.js", "Firebase", "React-Bootstrap"],
     links: [
-      { linkType: "Live Site",
-       link: "https://resale-here.web.app/" 
-      },
-      {
-        linkType: "GitHub",
-        link: "https://github.com/GreenerAsraf/resale-here",
-      },
+      { linkType: "Live Site", link: "https://resale-here.web.app/" },
+      { linkType: "GitHub", link: "https://github.com/GreenerAsraf/resale-here" },
     ],
   },
   {
     name: "Advoza The Law Firm",
-    Image: netflix,
+    Image: "/resale-here.png",
     type: "Mern",
     technologys: ["React.js", "Firebase", "React-Bootstrap"],
     links: [
-      { linkType: "Live Site", 
-      link: "https://advoza-a0c0b.web.app/" 
-    },
-      {
-        linkType: "GitHub",
-        link: "https://github.com/GreenerAsraf/advoza-the-law-firm",
-      },
-      {
-        linkType: "Back-end",
-        link: "https://assignment-eleven-server-six.vercel.app/",
-      },
+      { linkType: "Live Site", link: "https://advoza-a0c0b.web.app/" },
+      { linkType: "GitHub", link: "https://github.com/GreenerAsraf/advoza-the-law-firm" },
+      { linkType: "Back-end", link: "https://assignment-eleven-server-six.vercel.app/" },
     ],
   },
   {
-    name: "Learning bee",
-    Image: netflix,
+    name: "Learning Bee",
+    Image: "/resale-here.png",
     type: "Mern",
     technologys: [
       "React.js",
@@ -79,20 +64,11 @@ const portfolioData = [
       "MongoDB",
     ],
     links: [
-      { linkType: "Demo",
-       link: "https://programming-bee.web.app/" 
-      },
-      {
-        linkType: "Front-end",
-        link: "https://github.com/GreenerAsraf/learning-bee",
-      },
-      {
-        linkType: "Back-end",
-        link: "https://programming-bee-server.vercel.app/",
-      },
+      { linkType: "Demo", link: "https://programming-bee.web.app/" },
+      { linkType: "Front-end", link: "https://github.com/GreenerAsraf/learning-bee" },
+      { linkType: "Back-end", link: "https://programming-bee-server.vercel.app/" },
     ],
   },
 ];
+
 export default portfolioData;
-
-

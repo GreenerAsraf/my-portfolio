@@ -15,14 +15,28 @@
 
 .work-card {
   position: relative;
-  background: #0d1f38;
+  background: rgba(13, 31, 56, 0.6);
   border-radius: 16px;
   overflow: hidden;
   display: flex;
   flex-direction: column;
   cursor: pointer;
-  border: 1px solid rgba(255, 255, 255, 0.06);
-  transition: border-color 0.3s ease;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  backdrop-filter: blur(20px) saturate(1.6);
+  -webkit-backdrop-filter: blur(20px) saturate(1.6);
+  box-shadow:
+    0 8px 32px rgba(0, 0, 0, 0.3),
+    inset 0 1px 0 rgba(255, 255, 255, 0.08);
+  transition: border-color 0.3s ease, transform 0.35s ease, box-shadow 0.35s ease;
+}
+
+.work-card:hover {
+  transform: translateY(-6px);
+  border-color: rgba(88, 227, 196, 0.3);
+  box-shadow:
+    0 20px 50px rgba(0, 0, 0, 0.45),
+    0 0 0 1px rgba(88, 227, 196, 0.15),
+    inset 0 1px 0 rgba(255, 255, 255, 0.1);
 }
 
 /* Animated glowing border overlay */

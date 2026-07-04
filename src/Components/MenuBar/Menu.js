@@ -1,6 +1,6 @@
 "use client";
 
-import React from "react";
+import React, { useState, useEffect } from "react";
 import { Button, Nav, Navbar } from "react-bootstrap";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
@@ -10,13 +10,21 @@ import "./Menu.css";
 const Menu = () => {
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
+  const [scrolled, setScrolled] = useState(false);
 
   const isActive = (href) => pathname === href;
 
+  // Add glass class once user scrolls past hero
+  useEffect(() => {
+    const onScroll = () => setScrolled(window.scrollY > 60);
+    window.addEventListener("scroll", onScroll, { passive: true });
+    return () => window.removeEventListener("scroll", onScroll);
+  }, []);
+
   return (
-    <header className="mt-3 container-fluid">
+    <header className={`menu-header container-fluid ${scrolled ? "menu-header--scrolled" : ""}`}>
       <Navbar expand="md" className="navbar-dark px-0">
-        <Link href="/" className="navbar-brand logo light__white__color">
+        <Link href="/" className="navbar-brand logo">
           &lt;Asraf.dev /&gt;
         </Link>
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
@@ -30,7 +38,7 @@ const Menu = () => {
             </Link>
             <Link
               href="/about"
-              className={`nav-link ${isActive("/about") || isActive("/about") ? "active" : ""}`}
+              className={`nav-link ${isActive("/about") ? "active" : ""}`}
             >
               About
             </Link>
@@ -58,10 +66,10 @@ const Menu = () => {
             >
               Contact
             </Link>
-            
+
             {/* Theme Toggle Button */}
-            <button 
-              onClick={toggleTheme} 
+            <button
+              onClick={toggleTheme}
               className="theme-toggle-btn"
               aria-label="Toggle Dark/Light Mode"
             >

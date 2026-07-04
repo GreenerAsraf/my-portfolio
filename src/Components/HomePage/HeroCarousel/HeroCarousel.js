@@ -1,9 +1,43 @@
 "use client";
 
-import React, { useState, useEffect, useCallback } from "react";
+import React, { useState, useEffect, useCallback, useRef } from "react";
 import { motion, AnimatePresence } from "framer-motion";
 import "./HeroCarousel.css";
 
+// ── Typewriter hook ──────────────────────────────────────────
+const useTypewriter = (texts, { typingSpeed = 80, deletingSpeed = 45, pauseMs = 1800 } = {}) => {
+  const [display, setDisplay] = useState("");
+  const [textIdx, setTextIdx] = useState(0);
+  const [phase, setPhase] = useState("typing"); // typing | pausing | deleting
+
+  useEffect(() => {
+    const current = texts[textIdx];
+    let timeout;
+
+    if (phase === "typing") {
+      if (display.length < current.length) {
+        timeout = setTimeout(() => setDisplay(current.slice(0, display.length + 1)), typingSpeed);
+      } else {
+        timeout = setTimeout(() => setPhase("pausing"), pauseMs);
+      }
+    } else if (phase === "pausing") {
+      setPhase("deleting");
+    } else if (phase === "deleting") {
+      if (display.length > 0) {
+        timeout = setTimeout(() => setDisplay(display.slice(0, -1)), deletingSpeed);
+      } else {
+        setTextIdx((i) => (i + 1) % texts.length);
+        setPhase("typing");
+      }
+    }
+
+    return () => clearTimeout(timeout);
+  }, [display, phase, textIdx, texts, typingSpeed, deletingSpeed, pauseMs]);
+
+  return display;
+};
+
+// ── Slide data ───────────────────────────────────────────────
 const slides = [
   {
     id: 1,
@@ -39,6 +73,7 @@ const slides = [
   },
 ];
 
+const ROLE_TEXTS = slides.map((s) => s.tag);
 const DURATION = 6000;
 
 const textVariants = {
@@ -67,15 +102,17 @@ const HeroCarousel = () => {
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
   const [progress, setProgress] = useState(0);
+  const bgRef = useRef(null);
+  const carouselRef = useRef(null);
 
-  const goTo = useCallback(
-    (idx, dir) => {
-      setDirection(dir);
-      setCurrent(idx);
-      setProgress(0);
-    },
-    []
-  );
+  // Typewriter for the role tag
+  const typedTag = useTypewriter(ROLE_TEXTS, { typingSpeed: 75, deletingSpeed: 40, pauseMs: 2000 });
+
+  const goTo = useCallback((idx, dir) => {
+    setDirection(dir);
+    setCurrent(idx);
+    setProgress(0);
+  }, []);
 
   const next = useCallback(() => {
     const idx = (current + 1) % slides.length;
@@ -87,7 +124,7 @@ const HeroCarousel = () => {
     goTo(idx, -1);
   }, [current, goTo]);
 
-  // Auto-advance
+  // Auto-advance with progress ring
   useEffect(() => {
     const start = performance.now();
     let raf;
@@ -104,15 +141,38 @@ const HeroCarousel = () => {
     return () => cancelAnimationFrame(raf);
   }, [current, next]);
 
+  // Parallax scroll effect
+  useEffect(() => {
+    let rafId;
+    const handleScroll = () => {
+      rafId = requestAnimationFrame(() => {
+        if (bgRef.current && carouselRef.current) {
+          const scrollY = window.scrollY;
+          const heroHeight = carouselRef.current.offsetHeight;
+          // Only apply parallax while hero is in view
+          if (scrollY < heroHeight) {
+            bgRef.current.style.transform = `translateY(${scrollY * 0.28}px) scale(1.08)`;
+          }
+        }
+      });
+    };
+    window.addEventListener("scroll", handleScroll, { passive: true });
+    return () => {
+      window.removeEventListener("scroll", handleScroll);
+      cancelAnimationFrame(rafId);
+    };
+  }, []);
+
   const slide = slides[current];
 
   return (
-    <div className="hero-carousel">
-      {/* Background layers */}
+    <div className="hero-carousel" ref={carouselRef}>
+      {/* Background layers with parallax */}
       <AnimatePresence custom={direction} initial={false}>
         <motion.div
           key={slide.id}
           className="hero-bg"
+          ref={bgRef}
           custom={direction}
           variants={slideVariants}
           initial="enter"
@@ -141,7 +201,7 @@ const HeroCarousel = () => {
       <div className="hero-content container">
         <AnimatePresence mode="wait">
           <motion.div key={slide.id} className="hero-text-block">
-            {/* Tag badge */}
+            {/* Typewriter tag badge */}
             <motion.span
               className="hero-tag"
               style={{ borderColor: slide.accent, color: slide.accent }}
@@ -151,7 +211,8 @@ const HeroCarousel = () => {
               animate="visible"
               exit="exit"
             >
-              {slide.tag}
+              {typedTag}
+              <span className="typewriter-cursor" style={{ color: slide.accent }}>|</span>
             </motion.span>
 
             {/* Headline */}

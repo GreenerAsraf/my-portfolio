@@ -1,4 +1,46 @@
-/* Nav links */
+/* =========================================
+   Header container — scroll-aware glass
+   ========================================= */
+
+.menu-header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  z-index: 1000;
+  padding-top: 10px;
+  padding-bottom: 10px;
+  transition:
+    background 0.4s ease,
+    backdrop-filter 0.4s ease,
+    box-shadow 0.4s ease,
+    padding 0.3s ease;
+  /* Transparent by default */
+  background: transparent;
+}
+
+.menu-header--scrolled {
+  background: rgba(10, 25, 47, 0.75);
+  backdrop-filter: blur(20px) saturate(1.8);
+  -webkit-backdrop-filter: blur(20px) saturate(1.8);
+  box-shadow:
+    0 1px 0 rgba(88, 227, 196, 0.1),
+    0 8px 32px rgba(0, 0, 0, 0.3);
+  padding-top: 6px;
+  padding-bottom: 6px;
+}
+
+[data-theme='light'] .menu-header--scrolled {
+  background: rgba(248, 250, 252, 0.82);
+  box-shadow:
+    0 1px 0 rgba(13, 148, 136, 0.1),
+    0 4px 20px rgba(0, 0, 0, 0.08);
+}
+
+/* =========================================
+   Nav Links
+   ========================================= */
+
 .nav-link {
   color: #ccd6f6 !important;
   margin-right: 1.2rem;
@@ -10,16 +52,19 @@
   padding-bottom: 4px !important;
 }
 
+/* Animated underline bar */
 .nav-link::after {
   content: "";
   position: absolute;
   bottom: 0;
-  left: 0;
+  left: 50%;
+  transform: translateX(-50%);
   width: 0;
   height: 2px;
-  background: #58e3c4;
+  background: linear-gradient(90deg, #58e3c4, #a78bfa);
   border-radius: 2px;
-  transition: width 0.25s ease;
+  transition: width 0.3s cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  box-shadow: 0 0 8px rgba(88, 227, 196, 0.6);
 }
 
 .nav-link:hover {
@@ -31,16 +76,20 @@
   width: 100%;
 }
 
-/* Active link — teal underline instead of overline */
+/* Active link — teal glow */
 .nav-link.active {
-  color: var(--accent-teal, #58e3c4) !important;
+  color: #58e3c4 !important;
   text-decoration: none !important;
+  text-shadow: 0 0 12px rgba(88, 227, 196, 0.4);
 }
 
-/* Theme Toggle Button */
+/* =========================================
+   Theme Toggle Button
+   ========================================= */
+
 .theme-toggle-btn {
-  background: transparent;
-  border: 1px solid var(--border-color);
+  background: rgba(88, 227, 196, 0.06);
+  border: 1px solid rgba(88, 227, 196, 0.2);
   border-radius: 50%;
   width: 36px;
   height: 36px;
@@ -48,15 +97,18 @@
   align-items: center;
   justify-content: center;
   cursor: pointer;
-  font-size: 1.1rem;
+  font-size: 1.05rem;
   margin-left: 10px;
   transition: all 0.3s ease;
   color: var(--text-primary);
+  backdrop-filter: blur(8px);
 }
 
 .theme-toggle-btn:hover {
-  background: rgba(88, 227, 196, 0.1);
-  transform: scale(1.1);
+  background: rgba(88, 227, 196, 0.15);
+  border-color: rgba(88, 227, 196, 0.5);
+  transform: scale(1.1) rotate(15deg);
+  box-shadow: 0 0 16px rgba(88, 227, 196, 0.3);
 }
 
 @media (max-width: 767px) {
@@ -67,35 +119,59 @@
   }
 }
 
-/* Logo */
+/* =========================================
+   Logo — gradient text
+   ========================================= */
+
 .logo {
-  color: #ccd6f6 !important;
-  font-weight: 700;
-  font-size: 1.1rem;
+  font-weight: 800;
+  font-size: 1.15rem;
   letter-spacing: -0.3px;
   text-decoration: none !important;
-  transition: color 0.2s;
+  transition: filter 0.3s ease;
+
+  /* Gradient fill */
+  background: linear-gradient(135deg, #58e3c4 0%, #a78bfa 60%, #38bdf8 100%);
+  background-size: 200% auto;
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  animation: logoGradient 6s ease infinite;
+}
+
+@keyframes logoGradient {
+  0%   { background-position: 0% center; }
+  50%  { background-position: 100% center; }
+  100% { background-position: 0% center; }
 }
 
 .logo:hover {
-  color: #58e3c4 !important;
+  filter: drop-shadow(0 0 10px rgba(88, 227, 196, 0.5));
+  text-decoration: none !important;
 }
 
-/* Navbar base */
+/* =========================================
+   Navbar base — glass on scroll via header class
+   ========================================= */
+
 .navbar {
   background: transparent;
 }
 
-/* Mobile collapsed menu — glass dark panel */
+/* =========================================
+   Mobile collapsed menu — glass dark panel
+   ========================================= */
+
 @media (max-width: 767px) {
   .navbar-collapse {
     background: rgba(10, 25, 47, 0.97);
-    backdrop-filter: blur(12px);
-    -webkit-backdrop-filter: blur(12px);
-    border: 1px solid rgba(88, 227, 196, 0.1);
-    border-radius: 12px;
+    backdrop-filter: blur(16px) saturate(1.8);
+    -webkit-backdrop-filter: blur(16px) saturate(1.8);
+    border: 1px solid rgba(88, 227, 196, 0.12);
+    border-radius: 14px;
     padding: 16px 20px;
     margin-top: 10px;
+    box-shadow: 0 8px 32px rgba(0, 0, 0, 0.4);
   }
 
   .nav-link {
@@ -127,7 +203,10 @@
   }
 }
 
-/* Hamburger icon color */
+/* =========================================
+   Hamburger icon
+   ========================================= */
+
 .navbar-toggler {
   border-color: rgba(88, 227, 196, 0.4) !important;
   outline: none !important;

@@ -8,6 +8,7 @@ import SomeWork from './SomeWork/SomeWork';
 import Skills from './Skills/Skills';
 import ExperienceTimeline from './ExperienceTimeline/ExperienceTimeline';
 import Testimonials from './Testimonials/Testimonials';
+import StatsCounter from './StatsCounter/StatsCounter';
 import './HomePage.css';
 // Reusable scroll-reveal wrapper
 const FadeInSection = ({ children, delay = 0, direction = "up" }) => {
@@ -31,6 +32,11 @@ const HomePage = () => {
         <div className="homepage-wrapper">
             {/* Hero Carousel — full viewport */}
             <HeroCarousel />
+
+            {/* Stats Counter — immediately wows after hero */}
+            <FadeInSection direction="up" delay={0}>
+                <StatsCounter />
+            </FadeInSection>
 
             {/* Page content sections with staggered scroll-reveal */}
             <div className="homepage-content">
