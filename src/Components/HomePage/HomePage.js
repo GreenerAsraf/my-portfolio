@@ -6,8 +6,9 @@ import GetInTouchHome from './GetInTocuchHome/GetInTouchHome';
 import SomeArticels from './SomeArticels/SomeArticels';
 import SomeWork from './SomeWork/SomeWork';
 import Skills from './Skills/Skills';
+import ExperienceTimeline from './ExperienceTimeline/ExperienceTimeline';
+import Testimonials from './Testimonials/Testimonials';
 import './HomePage.css';
-
 // Reusable scroll-reveal wrapper
 const FadeInSection = ({ children, delay = 0, direction = "up" }) => {
     const yOffset = direction === "up" ? 50 : direction === "down" ? -50 : 0;
@@ -38,11 +39,19 @@ const HomePage = () => {
                 </FadeInSection>
 
                 <FadeInSection direction="up" delay={0.05}>
+                    <ExperienceTimeline />
+                </FadeInSection>
+
+                <FadeInSection direction="up" delay={0.05}>
                     <SomeWork />
                 </FadeInSection>
 
                 <FadeInSection direction="up" delay={0.05}>
                     <SomeArticels />
+                </FadeInSection>
+
+                <FadeInSection direction="up" delay={0.05}>
+                    <Testimonials />
                 </FadeInSection>
 
                 <FadeInSection direction="up" delay={0.05}>

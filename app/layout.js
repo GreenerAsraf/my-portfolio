@@ -2,6 +2,7 @@ import "./globals.css";
 import Menu from "../src/Components/MenuBar/Menu";
 import Footer from "../src/Components/ShearedFolder/Footer/Footer";
 import ClientEffects from "./ClientEffects";
+import { ThemeProvider } from "../src/Components/ThemeProvider/ThemeProvider";
 
 export const metadata = {
   title: "Mohammed Asraf Uddin — Portfolio",
@@ -14,12 +15,13 @@ export default function RootLayout({ children }) {
   return (
     <html lang="en">
       <body>
-        <Menu />
-        <main>{children}</main>
-        <Footer />
-        <ClientEffects />
+        <ThemeProvider>
+          <Menu />
+          <main>{children}</main>
+          <Footer />
+          <ClientEffects />
+        </ThemeProvider>
       </body>
     </html>
   );
 }
-

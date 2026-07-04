@@ -4,10 +4,12 @@ import React from "react";
 import { Button, Nav, Navbar } from "react-bootstrap";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
+import { useTheme } from "../ThemeProvider/ThemeProvider";
 import "./Menu.css";
 
 const Menu = () => {
   const pathname = usePathname();
+  const { theme, toggleTheme } = useTheme();
 
   const isActive = (href) => pathname === href;
 
@@ -56,10 +58,21 @@ const Menu = () => {
             >
               Contact
             </Link>
+            
+            {/* Theme Toggle Button */}
+            <button 
+              onClick={toggleTheme} 
+              className="theme-toggle-btn"
+              aria-label="Toggle Dark/Light Mode"
+            >
+              {theme === "dark" ? "☀️" : "🌙"}
+            </button>
+
             <a
               href="https://drive.google.com/file/d/1dGvygIl8YzuTfzAveymmQnuiiEcM2EYo/view"
               target="_blank"
               rel="noopener noreferrer"
+              className="ml-md-3"
             >
               <Button variant="outline-success">Resume</Button>
             </a>
