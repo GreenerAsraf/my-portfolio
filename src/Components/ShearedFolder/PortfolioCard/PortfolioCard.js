@@ -2,6 +2,7 @@
 
 import React, { useState } from "react";
 import { motion, AnimatePresence } from "framer-motion";
+import Image from "next/image";
 import './PortfolioCard.css';
 
 // Vibrant accent per project index
@@ -68,22 +69,33 @@ const PortfolioCard = ({ portfolioList }) => {
               {String(i + 1).padStart(2, '0')}
             </span>
 
-            {/* Glowing border on hover */}
+            {/* Infinite looping glowing border */}
             <motion.div
               className="work-card__border"
               animate={{
-                opacity: isHovered ? 1 : 0,
-                boxShadow: isHovered ? `0 0 0 1.5px ${accent.color}, 0 12px 48px ${accent.glow}` : 'none',
+                opacity: 1,
+                boxShadow: [
+                  `0 0 0 1px ${accent.color}40, 0 4px 20px ${accent.glow}`,
+                  `0 0 0 2px ${accent.color}, 0 12px 48px ${accent.glow}`,
+                  `0 0 0 1px ${accent.color}40, 0 4px 20px ${accent.glow}`
+                ]
               }}
-              transition={{ duration: 0.3 }}
+              transition={{
+                duration: 3,
+                repeat: Infinity,
+                ease: "easeInOut"
+              }}
             />
 
             {/* Image block */}
             <div className="work-card__img-wrap">
-              <img
+              <Image
                 src={portfolio.Image}
                 alt={portfolio.name}
                 className="work-card__img"
+                fill
+                sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+                style={{ objectFit: 'cover' }}
               />
 
               {/* Shimmer scan line */}

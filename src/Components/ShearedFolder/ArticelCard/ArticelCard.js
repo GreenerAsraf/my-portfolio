@@ -42,7 +42,7 @@ const ArticelCard = ({ articelList }) => {
           {/* Top image wrapper */}
           <div className="elegant-article-card__img-wrap">
             <motion.img
-              src={articel.image}
+              src={articel.image?.src || articel.image}
               alt={articel.title}
               className="elegant-article-card__img"
               variants={{

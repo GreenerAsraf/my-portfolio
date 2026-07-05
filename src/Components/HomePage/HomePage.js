@@ -1,6 +1,7 @@
 "use client";
-import React from 'react';
-import { motion } from 'framer-motion';
+import React, { useState, useEffect } from 'react';
+import { motion, AnimatePresence } from 'framer-motion';
+import Preloader from '../Preloader/Preloader';
 import HeroCarousel from './HeroCarousel/HeroCarousel';
 import GetInTouchHome from './GetInTocuchHome/GetInTouchHome';
 import SomeArticels from './SomeArticels/SomeArticels';
@@ -28,10 +29,25 @@ const FadeInSection = ({ children, delay = 0, direction = "up" }) => {
 };
 
 const HomePage = () => {
+    const [loading, setLoading] = useState(true);
+
+    useEffect(() => {
+        // Hide preloader after 2.5 seconds
+        const timer = setTimeout(() => {
+            setLoading(false);
+        }, 2500);
+        return () => clearTimeout(timer);
+    }, []);
+
     return (
-        <div className="homepage-wrapper">
-            {/* Hero Carousel — full viewport */}
-            <HeroCarousel />
+        <>
+            <AnimatePresence mode="wait">
+                {loading && <Preloader />}
+            </AnimatePresence>
+
+            <div className="homepage-wrapper">
+                {/* Hero Carousel — full viewport */}
+                <HeroCarousel />
 
             {/* Stats Counter — immediately wows after hero */}
             <FadeInSection direction="up" delay={0}>
@@ -41,15 +57,15 @@ const HomePage = () => {
             {/* Page content sections with staggered scroll-reveal */}
             <div className="homepage-content">
                 <FadeInSection direction="up" delay={0}>
+                    <SomeWork />
+                </FadeInSection>
+
+                <FadeInSection direction="up" delay={0.05}>
                     <Skills />
                 </FadeInSection>
 
                 <FadeInSection direction="up" delay={0.05}>
                     <ExperienceTimeline />
-                </FadeInSection>
-
-                <FadeInSection direction="up" delay={0.05}>
-                    <SomeWork />
                 </FadeInSection>
 
                 <FadeInSection direction="up" delay={0.05}>
@@ -65,6 +81,7 @@ const HomePage = () => {
                 </FadeInSection>
             </div>
         </div>
+        </>
     );
 };
 
