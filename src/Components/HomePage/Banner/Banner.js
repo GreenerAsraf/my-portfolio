@@ -62,7 +62,7 @@ const Banner = () => {
             responsibilities.
           </p>
           <div>
-            <Link href="/aboutme">
+            <Link href="/about">
               <Button variant="success" className="mr-3">
                 About Me
               </Button>

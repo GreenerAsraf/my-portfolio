@@ -248,7 +248,7 @@ const HeroCarousel = () => {
               animate="visible"
               exit="exit"
             >
-              <a href="/aboutme" className="hero-btn primary" style={{ background: slide.accent, color: "#0A192F" }}>
+              <a href="/about" className="hero-btn primary" style={{ background: slide.accent, color: "#0A192F" }}>
                 About Me
               </a>
               <a href="/contact" className="hero-btn outline" style={{ borderColor: slide.accent, color: slide.accent }}>
