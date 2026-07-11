@@ -2,13 +2,16 @@ const portfolioData = [
   {
     name: "Skill Bridge",
     Image: "/skillbridge-snapshot.png",
-    type: "Mern",
-    description: "A comprehensive platform to bridge skills. Use Admin Email: admin@example.com, Password: password123 to test.",
+    type: "Next.js with typescript",
+    description: "This is a website of Connecting with Expert Tutors, Learn Anything. This website is A comprehensive platform for skilled professionals to connect and collaborate.  Use Admin Email: admin@example.com, Password: password123 to test.",
     technologys: [
-      "React.js",
+      "Next.js",
+      "typescript",
       "Node.js",
       "Express.js",
-      "MongoDB",
+      "Prisma",
+      "PostgreSQL",
+      "JWT",
       "TailwindCSS"
     ],
     links: [
@@ -31,6 +34,30 @@ const portfolioData = [
     ],
   },
   {
+    name: "Grambashi Kollan Somity",
+    Image: "/gks.png",
+    description: "A comprehensive platform for a village committee called Grambashi Kollan Somity, For socio-economic development of the village people and other social activities.",
+    type: "Next.Js",
+    technologys: ["Next.js", "TailwindCSS", "DaisyUI", "Material UI"],
+    links: [
+      { linkType: "Live Site", link: "https://grambashi-kollan-somity.vercel.app/" },
+      { linkType: "GitHub", link: "https://github.com/GreenerAsraf/grambashi-kollan-somity" },
+    ],
+  },
+
+{
+    name: "Tech Quest",
+    Image: "/tecquest.png",
+    description: "This is a  platform for jobseeker & job creator who can offer job to jobseeker. And also provide online quiz and competitive programming for students. This is a group project with my seven team members.",
+    type: "React",
+    technologys: ["React.js", "Firebase", "React-Bootstrap"],
+    links: [
+      { linkType: "Live Site", link: "https://techquest-f0116.web.app/" },
+      { linkType: "GitHub", link: "https://github.com/Mahfuj-HSTU/TechQuest/tree/main" },
+    ],
+  },
+
+  {
     name: "Resale Laptop Website",
     Image: "/resale-here.png",
     type: "React",
@@ -40,6 +67,7 @@ const portfolioData = [
       { linkType: "GitHub", link: "https://github.com/GreenerAsraf/resale-here" },
     ],
   },
+  
   {
     name: "Advoza The Law Firm",
     Image: "/resale-here.png",

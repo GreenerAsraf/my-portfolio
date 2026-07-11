@@ -27,9 +27,9 @@ const timelineData = [
   },
   {
     year: "2015 - 2019",
-    title: "B.Sc. in Computer Science",
-    company: "University of Technology",
-    description: "Graduated with Honors. Specialized in software engineering and web technologies.",
+    title: "Accounting and Information System",
+    company: "University of Chittagong",
+    description: "Bachelor of Business Administration. Graduated with Honors. Specialized in accounting and information systems.",
     accent: "var(--accent-violet)"
   }
 ];
