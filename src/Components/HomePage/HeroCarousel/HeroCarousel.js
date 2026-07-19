@@ -41,7 +41,7 @@ const useTypewriter = (texts, { typingSpeed = 80, deletingSpeed = 45, pauseMs = 
 const slides = [
   {
     id: 1,
-    bg: "/carousel/bg1.png",
+    bg: "/carousel/bg1.webp",
     tag: "Full Stack Developer",
     headline: "Building Modern Web Experiences",
     sub: "Crafting scalable, high-performance apps with React, Next.js & Node.",
@@ -49,7 +49,7 @@ const slides = [
   },
   {
     id: 2,
-    bg: "/carousel/bg2.png",
+    bg: "/carousel/bg2.webp",
     tag: "Next.js & React Expert",
     headline: "Pixel-Perfect UI, Lightning Fast",
     sub: "Delivering beautiful interfaces that users love and businesses trust.",
@@ -57,7 +57,7 @@ const slides = [
   },
   {
     id: 3,
-    bg: "/carousel/bg3.png",
+    bg: "/carousel/bg3.webp",
     tag: "Backend & Database",
     headline: "Robust APIs & Smart Data Models",
     sub: "Node.js, Express, MongoDB & Prisma — engineered for scale.",
@@ -65,11 +65,19 @@ const slides = [
   },
   {
     id: 4,
-    bg: "/carousel/bg4.JPG",
+    bg: "/carousel/bg4.webp",
     tag: "Open for Opportunities",
     headline: "Let's Build Something Amazing",
     sub: "I'm available for freelance work and full-time positions worldwide.",
     accent: "#38bdf8",
+  },
+  {
+    id: 5,
+    bg: "/carousel/bg5.webp",
+    tag: "Creative Problem Solver",
+    headline: "Turning Ideas Into Reality",
+    sub: "From concept to deployment — bringing your vision to life with clean code.",
+    accent: "#ec4899",
   },
 ];
 
