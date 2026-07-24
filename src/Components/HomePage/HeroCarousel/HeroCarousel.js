@@ -40,6 +40,14 @@ const useTypewriter = (texts, { typingSpeed = 80, deletingSpeed = 45, pauseMs = 
 // ── Slide data ───────────────────────────────────────────────
 const slides = [
   {
+    id: 0,
+    bg: "/carousel/bg_asraf.webp",
+    tag: "Mohammed Asraf Uddin",
+    headline: "Mohammed Asraf Uddin",
+    sub: "Professional Full-Stack Web Developer. Crafting high-performance, modern applications with React, Next.js, Node.js, and MongoDB.",
+    accent: "#58e3c4",
+  },
+  {
     id: 1,
     bg: "/carousel/bg1.webp",
     tag: "Full Stack Developer",

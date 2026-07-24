@@ -5,32 +5,39 @@ import './ExperienceTimeline.css';
 
 const timelineData = [
   {
-    year: "2023 - Present",
-    title: "Senior Full-Stack Developer",
-    company: "TechNova Solutions",
-    description: "Leading the front-end architecture using Next.js and Tailwind CSS. Built scalable microservices with Node.js and MongoDB. Improved performance by 45%.",
+    year: "Jan 2026 - Jun 2026",
+    title: "Next Level AI-Driven Software Engineering Bootcamp",
+    company: "Programming Hero",
+    description: "Acquired advanced software engineering skills, focusing on clean architecture, AI integration, design patterns, and enterprise-grade software development methodologies.",
     accent: "var(--accent-teal)"
   },
   {
-    year: "2021 - 2023",
-    title: "React Developer",
-    company: "Creative Agency",
-    description: "Developed and maintained multiple client websites. Created reusable component libraries in React and integrated with headless CMS platforms.",
+    year: "2022 - Present",
+    title: "Complete Web Development Course",
+    company: "Programming Hero",
+    description: "Built a solid foundation in modern full-stack web development. Learnt HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, and Next.js through building real-world projects.",
     accent: "var(--accent-violet)"
   },
   {
-    year: "2019 - 2021",
-    title: "Freelance Web Developer",
-    company: "Self-Employed",
-    description: "Designed and built custom WordPress and MERN stack applications for local businesses. Managed end-to-end project lifecycles.",
+    year: "Sep 2022 - Oct 2022",
+    title: "JavaScript Course (Batch 2, Roll-37)",
+    company: "NACTAR",
+    description: "Completed intensive training on core programming concepts, algorithms, data structures, and DOM manipulation in JavaScript.",
     accent: "var(--accent-teal)"
   },
   {
-    year: "2015 - 2019",
-    title: "Accounting and Information System",
+    year: "2015 - 2016",
+    title: "MBA in Accounting",
     company: "University of Chittagong",
-    description: "Bachelor of Business Administration. Graduated with Honors. Specialized in accounting and information systems.",
+    description: "Master of Business Administration, specializing in Accounting. Developed strong analytical thinking, problem-solving skills, and financial systems knowledge.",
     accent: "var(--accent-violet)"
+  },
+  {
+    year: "2010 - 2014",
+    title: "BBA in Accounting",
+    company: "University of Chittagong",
+    description: "Bachelor of Business Administration, specializing in Accounting. Acquired fundamental business management, analytical, and data organization concepts.",
+    accent: "var(--accent-teal)"
   }
 ];
 

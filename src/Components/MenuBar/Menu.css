@@ -123,39 +123,156 @@
    Logo — gradient text
    ========================================= */
 
-.logo {
-  font-weight: 800;
-  font-size: 1.15rem;
-  letter-spacing: -0.3px;
+.logo-container {
+  display: flex;
+  align-items: center;
+  gap: 8px;
   text-decoration: none !important;
   transition: filter 0.3s ease;
+  user-select: none;
+}
 
-  /* Gradient fill */
-  background: linear-gradient(135deg, #58e3c4 0%, #a78bfa 60%, #38bdf8 100%);
+.logo-container:hover {
+  filter: drop-shadow(0 0 12px rgba(88, 227, 196, 0.45));
+}
+
+.logo-icon-wrap {
+  display: flex;
+  align-items: center;
+  font-family: 'Fira Code', monospace;
+  font-size: 1.25rem;
+  font-weight: 800;
+  line-height: 1;
+}
+
+.logo-bracket {
+  color: var(--accent-teal);
+  transition: transform 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+  display: inline-block;
+}
+
+.logo-letter {
+  color: var(--text-primary);
+  font-size: 1.15rem;
+  font-weight: 900;
+  margin: 0 1px;
+  background: linear-gradient(135deg, var(--text-primary) 0%, var(--accent-violet) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
+  transition: transform 0.3s ease, filter 0.3s ease;
+}
+
+.logo-container:hover .logo-bracket:first-child {
+  transform: translateX(-4px) scale(1.1);
+}
+
+.logo-container:hover .logo-bracket:last-child {
+  transform: translateX(4px) scale(1.1);
+}
+
+.logo-container:hover .logo-letter {
+  transform: scale(1.15) rotate(-5deg);
+  filter: drop-shadow(0 0 8px var(--accent-violet));
+}
+
+.logo-text {
+  font-size: 1.25rem;
+  font-weight: 800;
+  letter-spacing: -0.5px;
+  display: flex;
+  gap: 5px;
+}
+
+.logo-first {
+  color: var(--text-primary);
+  transition: color 0.3s ease;
+}
+
+.logo-second {
+  background: linear-gradient(135deg, var(--accent-teal) 0%, var(--accent-violet) 50%, #38bdf8 100%);
   background-size: 200% auto;
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  animation: logoGradient 6s ease infinite;
+  animation: logoTextShine 4s linear infinite;
 }
 
-@keyframes logoGradient {
-  0%   { background-position: 0% center; }
-  50%  { background-position: 100% center; }
-  100% { background-position: 0% center; }
+.logo-container:hover .logo-first {
+  color: var(--accent-teal);
 }
 
-.logo:hover {
-  filter: drop-shadow(0 0 10px rgba(88, 227, 196, 0.5));
-  text-decoration: none !important;
+@keyframes logoTextShine {
+  0% {
+    background-position: 0% center;
+  }
+  50% {
+    background-position: 100% center;
+  }
+  100% {
+    background-position: 0% center;
+  }
 }
 
 /* =========================================
    Navbar base — glass on scroll via header class
    ========================================= */
 
-.navbar {
-  background: transparent;
+.navbar-grid {
+  display: grid !important;
+  grid-template-columns: auto 1fr auto;
+  align-items: center;
+  width: 100%;
+}
+
+/* =========================================
+   Infinite Loop Ticker (Marquee)
+   ========================================= */
+
+.navbar-ticker {
+  overflow: hidden;
+  white-space: nowrap;
+  display: flex;
+  align-items: center;
+  margin: 0 40px;
+  /* Fade out edges */
+  mask-image: linear-gradient(to right, transparent 0%, white 15%, white 85%, transparent 100%);
+  -webkit-mask-image: linear-gradient(to right, transparent 0%, white 15%, white 85%, transparent 100%);
+}
+
+.ticker-track {
+  display: flex;
+  gap: 50px;
+  animation: navbarTickerLoop 25s linear infinite;
+  padding-left: 10px;
+}
+
+.ticker-item {
+  font-family: var(--font-inter), monospace;
+  font-size: 0.72rem;
+  font-weight: 700;
+  color: var(--accent-teal);
+  letter-spacing: 1.5px;
+  text-transform: uppercase;
+  display: flex;
+  align-items: center;
+  gap: 6px;
+  opacity: 0.8;
+  transition: opacity 0.2s ease;
+  white-space: nowrap;
+}
+
+.ticker-item:hover {
+  opacity: 1;
+}
+
+@keyframes navbarTickerLoop {
+  0% {
+    transform: translateX(0);
+  }
+  100% {
+    transform: translateX(-50%); /* Shift exactly half because content is duplicated */
+  }
 }
 
 /* =========================================
@@ -163,6 +280,10 @@
    ========================================= */
 
 @media (max-width: 767px) {
+  .navbar-grid {
+    display: flex !important; /* Fallback to standard flex on mobile */
+  }
+
   .navbar-collapse {
     background: rgba(10, 25, 47, 0.97);
     backdrop-filter: blur(16px) saturate(1.8);

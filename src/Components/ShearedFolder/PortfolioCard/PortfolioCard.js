@@ -57,6 +57,7 @@ const PortfolioCard = ({ portfolioList }) => {
         return (
           <motion.div
             key={portfolio.name}
+            layout
             className="work-card"
             variants={cardVariants}
             onMouseEnter={() => setHoveredIdx(i)}

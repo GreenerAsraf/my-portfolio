@@ -19,33 +19,14 @@ const GetInTouchHome = dynamic(() => import("./GetInTocuchHome/GetInTouchHome"))
 const HomePage = () => {
   const [loading, setLoading] = useState(true);
 
-  useEffect(() => {
-    let finished = false;
-
-    const finish = () => {
-      if (finished) return;
-      finished = true;
-      setLoading(false);
-    };
-
-    const maxWait = setTimeout(finish, 900);
-
-    if (document.readyState === "complete") {
-      finish();
-    } else {
-      window.addEventListener("load", finish, { once: true });
-    }
-
-    return () => {
-      clearTimeout(maxWait);
-      window.removeEventListener("load", finish);
-    };
-  }, []);
+  const handleLoaderComplete = () => {
+    setLoading(false);
+  };
 
   return (
     <>
       <AnimatePresence mode="wait">
-        {loading && <Preloader />}
+        {loading && <Preloader onComplete={handleLoaderComplete} />}
       </AnimatePresence>
 
       <div className="homepage-wrapper">

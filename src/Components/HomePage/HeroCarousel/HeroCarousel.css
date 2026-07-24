@@ -278,6 +278,10 @@
 
 /* ---- Responsive ---- */
 @media (max-width: 768px) {
+  .hero-bg {
+    background-position: center center;
+  }
+
   .hero-carousel {
     min-height: 580px;
     align-items: flex-start;

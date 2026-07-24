@@ -14,7 +14,6 @@ const Menu = () => {
 
   const isActive = (href) => pathname === href;
 
-  // Add glass class once user scrolls past hero
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
     window.addEventListener("scroll", onScroll, { passive: true });
@@ -23,13 +22,37 @@ const Menu = () => {
 
   return (
     <header className={`menu-header container-fluid ${scrolled ? "menu-header--scrolled" : ""}`}>
-      <Navbar expand="md" className="navbar-dark px-0">
-        <Link href="/" className="navbar-brand logo">
-          &lt;Asraf.dev /&gt;
+      <Navbar expand="md" className="navbar-dark px-0 navbar-grid">
+        <Link href="/" className="navbar-brand logo-container">
+          <div className="logo-icon-wrap">
+            <span className="logo-bracket">&lt;</span>
+            <span className="logo-letter">A</span>
+            <span className="logo-bracket">/&gt;</span>
+          </div>
+          <span className="logo-text">
+            <span className="logo-first">Asraf</span>
+            <span className="logo-second">Uddin</span>
+          </span>
         </Link>
+
+        {/* Infinite Loop Marquee Ticker */}
+        <div className="navbar-ticker d-none d-lg-flex">
+          <div className="ticker-track">
+            <span className="ticker-item">🟢 Open for Opportunities</span>
+            <span className="ticker-item">⚡ Next.js & React</span>
+            <span className="ticker-item">💻 MERN Stack</span>
+            <span className="ticker-item">🚀 Clean Architecture</span>
+            {/* Duplicate set for seamless looping */}
+            <span className="ticker-item">🟢 Open for Opportunities</span>
+            <span className="ticker-item">⚡ Next.js & React</span>
+            <span className="ticker-item">💻 MERN Stack</span>
+            <span className="ticker-item">🚀 Clean Architecture</span>
+          </div>
+        </div>
+
         <Navbar.Toggle aria-controls="basic-navbar-nav" />
         <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto">
+          <Nav className="ml-auto align-items-center">
             <Link
               href="/home"
               className={`nav-link ${isActive("/home") || isActive("/") ? "active" : ""}`}
@@ -82,7 +105,7 @@ const Menu = () => {
               rel="noopener noreferrer"
               className="ml-md-3"
             >
-              <Button variant="outline-success">Resume</Button>
+              <Button variant="outline-success" className="resume-btn">Resume</Button>
             </a>
           </Nav>
         </Navbar.Collapse>
