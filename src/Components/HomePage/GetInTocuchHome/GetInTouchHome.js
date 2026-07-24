@@ -3,6 +3,8 @@ import React, { useState } from "react";
 import { motion } from "framer-motion";
 import './GetInTouchHome.css';
 
+import emailjs from "emailjs-com";
+
 const GetInTouchHome = () => {
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
@@ -15,13 +17,26 @@ const GetInTouchHome = () => {
   const handleSubmit = (e) => {
     e.preventDefault();
     setIsSubmitting(true);
-    // Simulate network request
-    setTimeout(() => {
-      setIsSubmitting(false);
-      setIsSuccess(true);
-      setFormData({ name: '', email: '', message: '' });
-      setTimeout(() => setIsSuccess(false), 4000);
-    }, 1500);
+
+    emailjs
+      .sendForm(
+        "service_0jbxlu6",
+        "template_gjnsofi",
+        e.target,
+        "rHtvBbZ_lbS3OjOIH"
+      )
+      .then(
+        (result) => {
+          setIsSubmitting(false);
+          setIsSuccess(true);
+          setFormData({ name: '', email: '', message: '' });
+          setTimeout(() => setIsSuccess(false), 4000);
+        },
+        (error) => {
+          setIsSubmitting(false);
+          alert("Failed to send message: " + error.text);
+        }
+      );
   };
 
   return (
