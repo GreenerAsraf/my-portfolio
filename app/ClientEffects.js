@@ -1,5 +1,6 @@
 "use client";
 
+import { useEffect, useState } from "react";
 import dynamic from "next/dynamic";
 
 const MouseParticles = dynamic(() => import("react-mouse-particles"), {
@@ -13,6 +14,22 @@ const MessengerCustomerChat = dynamic(
 );
 
 export default function ClientEffects() {
+  const [ready, setReady] = useState(false);
+
+  useEffect(() => {
+    const enable = () => setReady(true);
+
+    if ("requestIdleCallback" in window) {
+      const id = window.requestIdleCallback(enable, { timeout: 2500 });
+      return () => window.cancelIdleCallback(id);
+    }
+
+    const timer = setTimeout(enable, 1500);
+    return () => clearTimeout(timer);
+  }, []);
+
+  if (!ready) return null;
+
   return (
     <>
       <MouseParticles

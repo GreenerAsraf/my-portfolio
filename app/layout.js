@@ -1,4 +1,5 @@
 import "./globals.css";
+import { inter } from "./fonts";
 import Menu from "../src/Components/MenuBar/Menu";
 import Footer from "../src/Components/ShearedFolder/Footer/Footer";
 import ClientEffects from "./ClientEffects";
@@ -13,10 +14,15 @@ export const metadata = {
   keywords: ["portfolio", "web developer", "MERN", "React", "Next.js", "JavaScript"],
 };
 
+const themeInitScript = `(function(){try{var t=localStorage.getItem("theme")||"dark";document.documentElement.setAttribute("data-theme",t)}catch(e){document.documentElement.setAttribute("data-theme","dark")}})()`;
+
 export default function RootLayout({ children }) {
   return (
-    <html lang="en">
-      <body>
+    <html lang="en" className={inter.variable} suppressHydrationWarning>
+      <head>
+        <script dangerouslySetInnerHTML={{ __html: themeInitScript }} />
+      </head>
+      <body className={inter.className}>
         <ThemeProvider>
           <MouseSpotlight />
           <ScrollToTop />

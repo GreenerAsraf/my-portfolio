@@ -50,7 +50,7 @@ const Preloader = () => {
         </motion.div>
 
         <motion.img
-          src="/Asraf.jpg"
+          src="/Asraf.webp"
           alt="Asraf Uddin"
           className="preloader-image"
           initial={{ opacity: 0, scale: 0.8, y: 20 }}

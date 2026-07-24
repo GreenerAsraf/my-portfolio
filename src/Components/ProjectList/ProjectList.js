@@ -1,7 +1,7 @@
 const portfolioData = [
   {
     name: "Nexa Mentor",
-    Image: "/skillbridge-snapshot.png",
+    Image: "/skillbridge-snapshot.webp",
     type: "Next.js with typescript",
     description: "This is a website of Connecting with Expert Tutors, Learn Anything. This website is A comprehensive platform for skilled professionals to connect and collaborate.  Use Admin Email: admin@example.com, Password: password123 to test.",
     technologys: [
@@ -47,7 +47,7 @@ const portfolioData = [
   // },
   {
     name: "Caffora",
-    Image: "/caffora.png",
+    Image: "/caffora.webp",
     type: "Next.js with typescript",
     description: "Caffora is a premium e-commerce platform for discovering thousands of curated products across electronics, fashion, home & more. Features include secure checkout with Stripe, user authentication, wishlist, product filtering, and a beautiful modern UI.",
     technologys: [
@@ -75,7 +75,7 @@ const portfolioData = [
 
 {
     name: "Tech Quest",
-    Image: "/tecquest.png",
+    Image: "/tecquest.webp",
     description: "This is a  platform for jobseeker & job creator who can offer job to jobseeker. And also provide online quiz and competitive programming for students. This is a group project with my seven team members.",
     type: "React",
     technologys: ["React.js", "Firebase", "React-Bootstrap"],
@@ -86,7 +86,7 @@ const portfolioData = [
   },
  {
     name: "Grambashi Kollan Somity",
-    Image: "/gks.png",
+    Image: "/gks.webp",
     description: "A comprehensive platform for a village committee called Grambashi Kollan Somity, For socio-economic development of the village people and other social activities.",
     type: "Next.Js",
     technologys: ["Next.js", "TailwindCSS", "DaisyUI", "Material UI"],
@@ -99,7 +99,7 @@ const portfolioData = [
 
   {
     name: "Resale Laptop Website",
-    Image: "/resale-here.png",
+    Image: "/resale-here.webp",
     type: "React",
     technologys: ["React.js", "Firebase", "React-Bootstrap"],
     links: [
@@ -110,7 +110,7 @@ const portfolioData = [
   
   {
     name: "Advoza The Law Firm",
-    Image: "/resale-here.png",
+    Image: "/advoza.webp",
     type: "Mern",
     technologys: ["React.js", "Firebase", "React-Bootstrap"],
     links: [
@@ -121,7 +121,7 @@ const portfolioData = [
   },
   {
     name: "Learning Bee",
-    Image: "/resale-here.png",
+    Image: "/learning-bee.webp",
     type: "Mern",
     technologys: [
       "React.js",

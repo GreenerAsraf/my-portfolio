@@ -65,7 +65,7 @@ const slides = [
   },
   {
     id: 4,
-    bg: "/carousel/bg4.webp",
+    bg: "/carousel/bg2.webp",
     tag: "Open for Opportunities",
     headline: "Let's Build Something Amazing",
     sub: "I'm available for freelance work and full-time positions worldwide.",

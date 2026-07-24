@@ -1,88 +1,88 @@
 "use client";
-import React, { useState, useEffect } from 'react';
-import { motion, AnimatePresence } from 'framer-motion';
-import Preloader from '../Preloader/Preloader';
-import HeroCarousel from './HeroCarousel/HeroCarousel';
-import GetInTouchHome from './GetInTocuchHome/GetInTouchHome';
-import SomeArticels from './SomeArticels/SomeArticels';
-import SomeWork from './SomeWork/SomeWork';
-import Skills from './Skills/Skills';
-import ExperienceTimeline from './ExperienceTimeline/ExperienceTimeline';
-import Testimonials from './Testimonials/Testimonials';
-import StatsCounter from './StatsCounter/StatsCounter';
-import './HomePage.css';
-// Reusable scroll-reveal wrapper
-const FadeInSection = ({ children, delay = 0, direction = "up" }) => {
-    const yOffset = direction === "up" ? 50 : direction === "down" ? -50 : 0;
-    const xOffset = direction === "left" ? 60 : direction === "right" ? -60 : 0;
 
-    return (
-        <motion.div
-            initial={{ opacity: 0, y: yOffset, x: xOffset }}
-            whileInView={{ opacity: 1, y: 0, x: 0 }}
-            viewport={{ once: true, margin: "-80px" }}
-            transition={{ duration: 0.75, delay, ease: [0.25, 0.46, 0.45, 0.94] }}
-        >
-            {children}
-        </motion.div>
-    );
-};
+import React, { useState, useEffect } from "react";
+import dynamic from "next/dynamic";
+import { AnimatePresence } from "framer-motion";
+import Preloader from "../Preloader/Preloader";
+import HeroCarousel from "./HeroCarousel/HeroCarousel";
+import FadeInSection from "../ShearedFolder/FadeInSection/FadeInSection";
+import "./HomePage.css";
+
+const StatsCounter = dynamic(() => import("./StatsCounter/StatsCounter"));
+const SomeWork = dynamic(() => import("./SomeWork/SomeWork"));
+const Skills = dynamic(() => import("./Skills/Skills"));
+const ExperienceTimeline = dynamic(() => import("./ExperienceTimeline/ExperienceTimeline"));
+const SomeArticels = dynamic(() => import("./SomeArticels/SomeArticels"));
+const Testimonials = dynamic(() => import("./Testimonials/Testimonials"));
+const GetInTouchHome = dynamic(() => import("./GetInTocuchHome/GetInTouchHome"));
 
 const HomePage = () => {
-    const [loading, setLoading] = useState(true);
+  const [loading, setLoading] = useState(true);
 
-    useEffect(() => {
-        // Hide preloader after 2.5 seconds
-        const timer = setTimeout(() => {
-            setLoading(false);
-        }, 2500);
-        return () => clearTimeout(timer);
-    }, []);
+  useEffect(() => {
+    let finished = false;
 
-    return (
-        <>
-            <AnimatePresence mode="wait">
-                {loading && <Preloader />}
-            </AnimatePresence>
+    const finish = () => {
+      if (finished) return;
+      finished = true;
+      setLoading(false);
+    };
 
-            <div className="homepage-wrapper">
-                {/* Hero Carousel — full viewport */}
-                <HeroCarousel />
+    const maxWait = setTimeout(finish, 900);
 
-            {/* Stats Counter — immediately wows after hero */}
-            <FadeInSection direction="up" delay={0}>
-                <StatsCounter />
-            </FadeInSection>
+    if (document.readyState === "complete") {
+      finish();
+    } else {
+      window.addEventListener("load", finish, { once: true });
+    }
 
-            {/* Page content sections with staggered scroll-reveal */}
-            <div className="homepage-content">
-                <FadeInSection direction="up" delay={0}>
-                    <SomeWork />
-                </FadeInSection>
+    return () => {
+      clearTimeout(maxWait);
+      window.removeEventListener("load", finish);
+    };
+  }, []);
 
-                <FadeInSection direction="up" delay={0.05}>
-                    <Skills />
-                </FadeInSection>
+  return (
+    <>
+      <AnimatePresence mode="wait">
+        {loading && <Preloader />}
+      </AnimatePresence>
 
-                <FadeInSection direction="up" delay={0.05}>
-                    <ExperienceTimeline />
-                </FadeInSection>
+      <div className="homepage-wrapper">
+        <HeroCarousel />
 
-                <FadeInSection direction="up" delay={0.05}>
-                    <SomeArticels />
-                </FadeInSection>
+        <FadeInSection direction="up" delay={0}>
+          <StatsCounter />
+        </FadeInSection>
 
-                <FadeInSection direction="up" delay={0.05}>
-                    <Testimonials />
-                </FadeInSection>
+        <div className="homepage-content">
+          <FadeInSection direction="up" delay={0}>
+            <SomeWork />
+          </FadeInSection>
 
-                <FadeInSection direction="up" delay={0.05}>
-                    <GetInTouchHome />
-                </FadeInSection>
-            </div>
+          <FadeInSection direction="up" delay={0.05}>
+            <Skills />
+          </FadeInSection>
+
+          <FadeInSection direction="up" delay={0.05}>
+            <ExperienceTimeline />
+          </FadeInSection>
+
+          <FadeInSection direction="up" delay={0.05}>
+            <SomeArticels />
+          </FadeInSection>
+
+          <FadeInSection direction="up" delay={0.05}>
+            <Testimonials />
+          </FadeInSection>
+
+          <FadeInSection direction="up" delay={0.05}>
+            <GetInTouchHome />
+          </FadeInSection>
         </div>
-        </>
-    );
+      </div>
+    </>
+  );
 };
 
 export default HomePage;

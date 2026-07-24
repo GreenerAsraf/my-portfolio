@@ -56,7 +56,7 @@ const ArticelCard = ({ articelList }) => {
           {/* Card content */}
           <div className="elegant-article-card__content">
             <div className="elegant-article-card__meta">
-              <span className="elegant-article-card__date">6 May 2022</span>
+              <span className="elegant-article-card__date">{articel.date}</span>
             </div>
 
             <h3 className="elegant-article-card__title">

@@ -1,8 +1,7 @@
 /** @type {import('next').NextConfig} */
 const nextConfig = {
-  // Allow static image imports (same as CRA behavior)
   images: {
-    unoptimized: true,
+    formats: ["image/avif", "image/webp"],
   },
 
   // Redirect old routes to new Next.js paths

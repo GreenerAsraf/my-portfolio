@@ -36,7 +36,7 @@ const Footer = () => {
                     <a href="https://www.linkedin.com/in/mohammed-asraf-uddin/" target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="LinkedIn">
                         <FontAwesomeIcon icon={faLinkedin} />
                     </a>
-                    <a href="https://medium.com/@asraf" target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="Medium">
+                    <a href="https://medium.com/@asraf.uddin4407" target="_blank" rel="noopener noreferrer" className="footer-social-icon" aria-label="Medium">
                         <FontAwesomeIcon icon={faMedium} />
                     </a>
                 </div>

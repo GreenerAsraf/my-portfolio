@@ -77,7 +77,7 @@ const Menu = () => {
             </button>
 
             <a
-              href="https://drive.google.com/file/d/1dGvygIl8YzuTfzAveymmQnuiiEcM2EYo/view"
+              href="https://docs.google.com/document/d/1uKyIuKQpeRYfjg9jcU8ATSlvuI6xTzJ7K6GWFDwwnAI/edit?usp=sharing"
               target="_blank"
               rel="noopener noreferrer"
               className="ml-md-3"
