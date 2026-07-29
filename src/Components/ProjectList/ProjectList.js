@@ -98,6 +98,17 @@ const portfolioData = [
 
 
   {
+    name: "Hakim Uddin Govt. Primary School",
+    Image: "/school.webp",
+    description: "This is a website of Hakim Uddin Govt. Primary School, It is a website for the primary school students and teachers for the school management system.",
+    type: "Next.Js",
+    technologys: ["Next.js", "TailwindCSS", "DaisyUI", "Material UI"],
+    links: [
+      { linkType: "Live Site", link: "https://hakim-uddin-govt-primary-school.vercel.app/" },
+      { linkType: "GitHub", link: "https://github.com/GreenerAsraf/hakimUddin_govt_primary_school" },
+    ],
+  },
+  {
     name: "Resale Laptop Website",
     Image: "/resale-here.webp",
     type: "React",
