@@ -37,7 +37,7 @@ const PortfolioPage = () => {
         ))}
       </div>
 
-      <PortfolioCard portfolioList={filteredProjects} />
+      <PortfolioCard key={activeFilter} portfolioList={filteredProjects} />
     </section>
   );
 };

@@ -99,14 +99,38 @@ const Menu = () => {
               {theme === "dark" ? "☀️" : "🌙"}
             </button>
 
-            <a
-              href="https://docs.google.com/document/d/1uKyIuKQpeRYfjg9jcU8ATSlvuI6xTzJ7K6GWFDwwnAI/edit?usp=sharing"
-              target="_blank"
-              rel="noopener noreferrer"
-              className="ml-md-3"
-            >
-              <Button variant="outline-success" className="resume-btn">Resume</Button>
-            </a>
+            {/* Resume dropdown */}
+            <div className="resume-dropdown ml-md-3">
+              <button className="resume-btn">
+                Resume
+                <svg className="resume-btn__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div className="resume-dropdown__menu">
+                <a
+                  href="https://docs.google.com/document/d/1uKyIuKQpeRYfjg9jcU8ATSlvuI6xTzJ7K6GWFDwwnAI/edit?usp=sharing"
+                  target="_blank"
+                  rel="noopener noreferrer"
+                  className="resume-dropdown__item"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
+                  </svg>
+                  View
+                </a>
+                <a
+                  href="https://docs.google.com/document/d/1uKyIuKQpeRYfjg9jcU8ATSlvuI6xTzJ7K6GWFDwwnAI/export?format=pdf"
+                  download="Mohammed_Asraf_Uddin_Resume.pdf"
+                  className="resume-dropdown__item"
+                >
+                  <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+                    <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
+                  </svg>
+                  Download
+                </a>
+              </div>
+            </div>
           </Nav>
         </Navbar.Collapse>
       </Navbar>

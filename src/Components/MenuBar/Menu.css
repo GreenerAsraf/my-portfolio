@@ -337,3 +337,137 @@
 .navbar-toggler-icon {
   filter: invert(1);
 }
+
+/* =========================================
+   Resume Dropdown
+   ========================================= */
+
+.resume-dropdown {
+  position: relative;
+  display: inline-flex;
+  align-items: center;
+}
+
+/* The trigger button */
+.resume-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 6px;
+  padding: 7px 18px;
+  background: transparent;
+  border: 1.5px solid #58e3c4;
+  border-radius: 8px;
+  color: #58e3c4;
+  font-size: 0.85rem;
+  font-weight: 600;
+  cursor: pointer;
+  letter-spacing: 0.3px;
+  transition: background 0.22s ease, color 0.22s ease, box-shadow 0.22s ease;
+  white-space: nowrap;
+}
+
+.resume-btn:hover,
+.resume-dropdown:hover .resume-btn {
+  background: rgba(88, 227, 196, 0.12);
+  color: #58e3c4;
+  box-shadow: 0 0 16px rgba(88, 227, 196, 0.25);
+}
+
+.resume-btn__chevron {
+  transition: transform 0.25s ease;
+  flex-shrink: 0;
+}
+
+.resume-dropdown:hover .resume-btn__chevron {
+  transform: rotate(180deg);
+}
+
+/* The dropdown panel */
+.resume-dropdown__menu {
+  position: absolute;
+  top: calc(100% + 10px);
+  right: 0;
+  min-width: 150px;
+  background: rgba(8, 20, 42, 0.95);
+  backdrop-filter: blur(16px);
+  -webkit-backdrop-filter: blur(16px);
+  border: 1px solid rgba(88, 227, 196, 0.2);
+  border-radius: 10px;
+  padding: 6px;
+  box-shadow:
+    0 12px 40px rgba(0, 0, 0, 0.5),
+    0 0 0 1px rgba(88, 227, 196, 0.08);
+  z-index: 1000;
+
+  /* Hidden by default, shown on hover */
+  opacity: 0;
+  visibility: hidden;
+  transform: translateY(-6px);
+  transition: opacity 0.22s ease, transform 0.22s ease, visibility 0.22s;
+}
+
+.resume-dropdown:hover .resume-dropdown__menu {
+  opacity: 1;
+  visibility: visible;
+  transform: translateY(0);
+}
+
+/* Each option */
+.resume-dropdown__item {
+  display: flex;
+  align-items: center;
+  gap: 9px;
+  padding: 9px 14px;
+  border-radius: 7px;
+  font-size: 0.82rem;
+  font-weight: 600;
+  color: #ccd6f6;
+  text-decoration: none;
+  transition: background 0.18s ease, color 0.18s ease;
+  white-space: nowrap;
+}
+
+.resume-dropdown__item:hover {
+  background: rgba(88, 227, 196, 0.12);
+  color: #58e3c4;
+  text-decoration: none;
+}
+
+.resume-dropdown__item svg {
+  flex-shrink: 0;
+  opacity: 0.75;
+}
+
+.resume-dropdown__item:hover svg {
+  opacity: 1;
+}
+
+/* Divider between items */
+.resume-dropdown__item + .resume-dropdown__item {
+  border-top: 1px solid rgba(255, 255, 255, 0.05);
+}
+
+/* Mobile: stack inline */
+@media (max-width: 767px) {
+  .resume-dropdown {
+    flex-direction: column;
+    width: 100%;
+    margin-top: 12px;
+  }
+
+  .resume-btn {
+    width: 100%;
+    justify-content: center;
+  }
+
+  .resume-dropdown__menu {
+    position: static;
+    opacity: 1;
+    visibility: visible;
+    transform: none;
+    width: 100%;
+    margin-top: 6px;
+    box-shadow: none;
+    border-color: rgba(88, 227, 196, 0.15);
+  }
+}
