@@ -336,7 +336,12 @@ const HeroCarousel = () => {
                     <span className="line-num">2</span>  <span className="token-property">name</span>: <span className="token-string">'Mohammed Asraf Uddin'</span>,<br/>
                     <span className="line-num">3</span>  <span className="token-property">role</span>: <span className="token-string">'MERN Stack Developer'</span>,<br/>
                     <span className="line-num">4</span>  <span className="token-property">skills</span>: [<br/>
-                    <span className="line-num">5</span>    <span className="token-string">'React'</span>, <span className="token-string">'Node.js'</span>, <span className="token-string">'PostgreSQL'</span>, <span className="token-string">'Express'</span><br/>
+                    <span className="line-num">5</span>
+                    <span className="token-string">'JavaScript'</span>,
+                    <span className="token-string">'TypeScript'</span>,
+                    <span className="token-string">'React'</span>,
+                    <span className="token-string">'Next.js'</span>,
+                    <span className="token-string">'Node.js'</span>, <span className="token-string">'PostgreSQL'</span>, <span className="token-string">'Express'</span><br />
                     <span className="line-num">6</span>  ],<br/>
                     <span className="line-num">7</span>  <span className="token-property">architecture</span>: <span className="token-string">'REST / GraphQL'</span>,<br/>
                     <span className="line-num">8</span>  <span className="token-property">availableForHire</span>: <span className="token-boolean">true</span>,<br/>
