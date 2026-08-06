@@ -1,6 +1,6 @@
 .site-footer {
   background: linear-gradient(180deg, #0a192f 0%, #060f1e 100%);
-  border-top: 1px solid rgba(88, 227, 196, 0.12);
+  border-top: 1px solid rgba(var(--accent-blue-rgb), 0.12);
   padding: 60px 0 30px;
   margin-top: 40px;
 }
@@ -17,7 +17,7 @@
 .footer-logo {
   font-size: 1.3rem;
   font-weight: 800;
-  color: #58e3c4;
+  color: var(--accent-blue);
   letter-spacing: -0.5px;
   display: block;
   margin-bottom: 10px;
@@ -49,7 +49,7 @@
 }
 
 .footer-link:hover {
-  color: #58e3c4;
+  color: var(--accent-blue);
 }
 
 /* Social icons */
@@ -62,7 +62,7 @@
   width: 38px;
   height: 38px;
   border-radius: 50%;
-  border: 1px solid rgba(88, 227, 196, 0.2);
+  border: 1px solid rgba(var(--accent-blue-rgb), 0.2);
   display: flex;
   align-items: center;
   justify-content: center;
@@ -78,9 +78,9 @@
 }
 
 .footer-social-icon:hover {
-  color: #58e3c4;
-  border-color: #58e3c4;
-  background: rgba(88, 227, 196, 0.08);
+  color: var(--accent-blue);
+  border-color: var(--accent-blue);
+  background: rgba(var(--accent-blue-rgb), 0.08);
   transform: translateY(-3px);
 }
 

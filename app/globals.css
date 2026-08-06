@@ -31,43 +31,106 @@ body, #__next {
 }
 
 
+/* =============================
+   Design Tokens — Color Palette
+   Tech Blue · Vibrant Yellow · Light Gray
+   ============================= */
+
 :root {
-  /* Dark Mode (Default) */
-  --bg-primary: #0A192F;
-  --bg-secondary: #112240;
-  --bg-card: #0d1f38;
-  --text-primary: #e6f1ff;
-  --text-secondary: #8892b0;
-  --text-tertiary: #a8b2d8;
-  --border-color: rgba(88, 227, 196, 0.12);
-  --accent-teal: #58e3c4;
-  --accent-violet: #a78bfa;
+  /* --- Blue Scale --- */
+  --blue-dark:       #0057B8;
+  --blue-primary:    #0A84FF;
+  --blue-light:      #3DA5FF;
+  --blue-tint:       #E8F3FF;
+
+  /* --- Yellow Scale --- */
+  --yellow-primary:  #FFD60A;
+  --yellow-warm:     #FFAA00;
+  --yellow-tint:     #FFF9D6;
+
+  /* --- Neutral / Gray Scale --- */
+  --gray-50:         #F9FAFB;
+  --gray-100:        #F4F5F7;
+  --gray-200:        #E1E4E8;
+  --gray-400:        #A8B2C1;
+  --gray-500:        #8B95A1;
+  --gray-700:        #4A5568;
+  --gray-900:        #1C2128;
+
+  /* --- Dark Mode Semantic Tokens (Default) --- */
+  --bg-primary:      #0A192F;
+  --bg-secondary:    #112240;
+  --bg-card:         #0d1f38;
+  --bg-surface:      #0d1f38;
+
+  --text-primary:    #e6f1ff;
+  --text-secondary:  #8892b0;
+  --text-tertiary:   #a8b2d8;
+
+  --border-color:    rgba(10, 132, 255, 0.15);
+
+  /* --- Brand / Accent Tokens --- */
+  --accent-blue:     var(--blue-primary);       /* replaces --accent-teal  */
+  --accent-yellow:   var(--yellow-primary);     /* replaces --accent-violet */
+  --accent-blue-rgb: 10, 132, 255;
+  --accent-yellow-rgb: 255, 214, 10;
+
+  /* Legacy aliases kept for backward-compatibility */
+  --accent-teal:     var(--blue-primary);
+  --accent-violet:   var(--yellow-warm);
+
+  /* --- Typography --- */
+  --font-body:       var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', sans-serif;
+  --font-heading:    var(--font-heading, 'Space Grotesk'), sans-serif;
+  --font-code:       var(--font-mono), 'JetBrains Mono', 'Fira Code', monospace;
 }
 
+/* =============================
+   Light Mode Overrides
+   ============================= */
+
 [data-theme='light'] {
-  /* Light Mode */
-  --bg-primary: #f8fafc;
-  --bg-secondary: #ffffff;
-  --bg-card: #ffffff;
-  --text-primary: #1e293b;
-  --text-secondary: #475569;
-  --text-tertiary: #64748b;
-  --border-color: rgba(15, 23, 42, 0.1);
-  --accent-teal: #0d9488;
-  --accent-violet: #7c3aed;
+  --bg-primary:      #f8fafc;
+  --bg-secondary:    #ffffff;
+  --bg-card:         #ffffff;
+  --bg-surface:      #ffffff;
+
+  --text-primary:    var(--gray-900);
+  --text-secondary:  #475569;
+  --text-tertiary:   #64748b;
+
+  --border-color:    rgba(10, 132, 255, 0.12);
+
+  --accent-blue:     var(--blue-dark);
+  --accent-yellow:   var(--yellow-warm);
+  --accent-teal:     var(--blue-dark);
+  --accent-violet:   var(--yellow-warm);
 }
+
+/* =============================
+   Base Typography & Body
+   ============================= */
 
 body {
   margin: 0;
-  font-family: var(--font-inter), -apple-system, BlinkMacSystemFont, 'Segoe UI', 'Roboto', 'Oxygen',
-    'Ubuntu', 'Cantarell', 'Fira Sans', 'Droid Sans', 'Helvetica Neue',
-    sans-serif;
+  font-family: var(--font-body);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-primary) !important;
   color: var(--text-primary);
   transition: background-color 0.4s ease, color 0.4s ease;
   position: relative;
+}
+
+h1, h2, h3, h4, h5, h6 {
+  font-family: var(--font-heading);
+  font-weight: 700;
+  line-height: 1.2;
+  letter-spacing: -0.02em;
+}
+
+code, pre, kbd, samp {
+  font-family: var(--font-code);
 }
 
 body::before {
@@ -93,6 +156,10 @@ body::before {
   opacity: 0.22;
 }
 
+/* =============================
+   Utility Classes
+   ============================= */
+
 .light__white__color {
   color: var(--text-primary);
 }
@@ -101,8 +168,9 @@ body::before {
    Design Tokens (from App.css)
    ============================= */
 
+/* Updated: was #58e3c4 (teal), now tech blue */
 .light__green__color {
-  color: #58e3c4 !important;
+  color: var(--accent-blue) !important;
 }
 
 .fw-400 {
@@ -112,8 +180,10 @@ body::before {
 .section__title {
   position: relative;
   padding-bottom: 8px;
+  font-family: var(--font-heading);
 }
 
+/* Yellow underline bar — vibrant accent on section titles */
 .section__title::before {
   display: block;
   content: "";
@@ -121,6 +191,7 @@ body::before {
   bottom: 0;
   left: 0;
   width: 75px;
-  height: 2px;
-  background-color: #58e3c4;
+  height: 3px;
+  background: linear-gradient(90deg, var(--yellow-primary), var(--yellow-warm));
+  border-radius: 2px;
 }

@@ -45,7 +45,7 @@ const slides = [
     tag: "Mohammed Asraf Uddin",
     headline: "Mohammed Asraf Uddin",
     sub: "Professional Full-Stack Web Developer. Crafting high-performance, modern applications with React, Next.js, Node.js, and MongoDB.",
-    accent: "#58e3c4",
+    accent: "#0A84FF",
   },
   {
     id: 1,
@@ -53,7 +53,7 @@ const slides = [
     tag: "Full Stack Developer",
     headline: "Building Modern Web Experiences",
     sub: "Crafting scalable, high-performance apps with React, Next.js & Node.",
-    accent: "#58e3c4",
+    accent: "#0A84FF",
   },
   {
     id: 2,
@@ -61,7 +61,7 @@ const slides = [
     tag: "Next.js & React Expert",
     headline: "Pixel-Perfect UI, Lightning Fast",
     sub: "Delivering beautiful interfaces that users love and businesses trust.",
-    accent: "#7c3aed",
+    accent: "#FFD60A",
   },
   {
     id: 3,
@@ -77,7 +77,7 @@ const slides = [
     tag: "Open for Opportunities",
     headline: "Let's Build Something Amazing",
     sub: "I'm available for freelance work and full-time positions worldwide.",
-    accent: "#38bdf8",
+    accent: "#3DA5FF",
   },
   {
     id: 5,
@@ -215,64 +215,125 @@ const HeroCarousel = () => {
 
       {/* Content */}
       <div className="hero-content container">
-        <AnimatePresence mode="wait">
-          <motion.div key={slide.id} className="hero-text-block">
-            {/* Typewriter tag badge */}
-            <motion.span
-              className="hero-tag"
-              style={{ borderColor: slide.accent, color: slide.accent }}
-              custom={0}
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            >
-              {typedTag}
-              <span className="typewriter-cursor" style={{ color: slide.accent }}>|</span>
-            </motion.span>
+        <div className="hero-grid-layout">
+          <AnimatePresence mode="wait">
+            <motion.div key={slide.id} className="hero-text-block">
+              {/* Typewriter tag badge */}
+              <motion.span
+                className="hero-tag"
+                style={{ borderColor: slide.accent, color: slide.accent }}
+                custom={0}
+                variants={textVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                {typedTag}
+                <span className="typewriter-cursor" style={{ color: slide.accent }}>|</span>
+              </motion.span>
 
-            {/* Headline */}
-            <motion.h1
-              className="hero-headline"
-              custom={1}
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            >
-              {slide.headline}
-            </motion.h1>
+              {/* Headline */}
+              <motion.h1
+                className="hero-headline"
+                custom={1}
+                variants={textVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                {slide.headline}
+              </motion.h1>
 
-            {/* Sub */}
-            <motion.p
-              className="hero-sub"
-              custom={2}
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            >
-              {slide.sub}
-            </motion.p>
+              {/* Sub */}
+              <motion.p
+                className="hero-sub"
+                custom={2}
+                variants={textVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                {slide.sub}
+              </motion.p>
 
-            {/* CTA buttons */}
-            <motion.div
-              className="hero-ctas"
-              custom={3}
-              variants={textVariants}
-              initial="hidden"
-              animate="visible"
-              exit="exit"
-            >
-              <a href="/about" className="hero-btn primary" style={{ background: slide.accent, color: "#0A192F" }}>
-                About Me
-              </a>
-              <a href="/contact" className="hero-btn outline" style={{ borderColor: slide.accent, color: slide.accent }}>
-                Get in Touch
-              </a>
+              {/* CTA buttons */}
+              <motion.div
+                className="hero-ctas"
+                custom={3}
+                variants={textVariants}
+                initial="hidden"
+                animate="visible"
+                exit="exit"
+              >
+                <a href="/about" className="hero-btn primary" style={{ background: slide.accent, color: "#0A192F" }}>
+                  About Me
+                </a>
+                <a href="/contact" className="hero-btn outline" style={{ borderColor: slide.accent, color: slide.accent }}>
+                  Get in Touch
+                </a>
+              </motion.div>
             </motion.div>
-          </motion.div>
-        </AnimatePresence>
+          </AnimatePresence>
+
+          {/* Right Visuals: Code Mockup & Floating Badges */}
+          <div className="hero-visuals-block">
+            {/* Floating Badges */}
+            <div className="floating-badges">
+              <div className="tech-badge badge-react">
+                <svg viewBox="0 0 100 100" width="20" height="20">
+                  <path fill="none" stroke="#00d8ff" strokeWidth="4.4" d="M50 30a70 30 0 0 0 0 40 70 30 0 0 0 0-40Z"/>
+                  <path fill="none" stroke="#00d8ff" strokeWidth="4.4" d="M50 30a70 30 0 0 0 0 40 70 30 0 0 0 0-40Z" transform="rotate(60 50 50)"/>
+                  <path fill="none" stroke="#00d8ff" strokeWidth="4.4" d="M50 30a70 30 0 0 0 0 40 70 30 0 0 0 0-40Z" transform="rotate(120 50 50)"/>
+                  <circle cx="50" cy="50" r="7" fill="#00d8ff"/>
+                </svg>
+                <span>React</span>
+              </div>
+              <div className="tech-badge badge-node">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#68a063">
+                  <path d="M12 2L4 6.5v9L12 20l8-4.5v-9L12 2zm0 15.5l-6-3.4v-6.2l6-3.4 6 3.4v6.2l-6 3.4z"/>
+                </svg>
+                <span>Node.js</span>
+              </div>
+              <div className="tech-badge badge-mongo">
+                <svg viewBox="0 0 24 24" width="20" height="20" fill="#13aa52">
+                  <path d="M12 2C11.5 2 6 7 6 12C6 16.5 9.5 20 12 22C14.5 20 18 16.5 18 12C18 7 12.5 2 12 2ZM12 18.5C10.5 18.5 8 16.5 8 12.5C8 8.5 11.5 5 12 4C12.5 5 16 8.5 16 12.5C16 16.5 13.5 18.5 12 18.5Z"/>
+                </svg>
+                <span>MongoDB</span>
+              </div>
+            </div>
+
+            {/* Code Window Mockup */}
+            <div className="code-editor-mockup">
+              <div className="editor-header">
+                <div className="editor-dots">
+                  <span className="dot dot-red"></span>
+                  <span className="dot dot-yellow"></span>
+                  <span className="dot dot-green"></span>
+                </div>
+                <div className="editor-tab">
+                  <span className="tab-icon">js</span>
+                  <span className="tab-name">developer.js</span>
+                </div>
+              </div>
+              <div className="editor-body">
+                <pre className="code-lines">
+                  <code>
+                    <span className="line-num">1</span><span className="token-keyword">const</span> <span className="token-def">developer</span> = &#123;<br/>
+                    <span className="line-num">2</span>  <span className="token-property">name</span>: <span className="token-string">'Mohammed Asraf Uddin'</span>,<br/>
+                    <span className="line-num">3</span>  <span className="token-property">role</span>: <span className="token-string">'MERN Stack Developer'</span>,<br/>
+                    <span className="line-num">4</span>  <span className="token-property">skills</span>: [<br/>
+                    <span className="line-num">5</span>    <span className="token-string">'React'</span>, <span className="token-string">'Node.js'</span>, <span className="token-string">'MongoDB'</span>, <span className="token-string">'Express'</span><br/>
+                    <span className="line-num">6</span>  ],<br/>
+                    <span className="line-num">7</span>  <span className="token-property">architecture</span>: <span className="token-string">'REST / GraphQL'</span>,<br/>
+                    <span className="line-num">8</span>  <span className="token-property">availableForHire</span>: <span className="token-boolean">true</span>,<br/>
+                    <span className="line-num">9</span>  <span className="token-method">code</span>: () =&gt; <span className="token-string">'High-performance web apps'</span><br/>
+                    <span className="line-num">10</span>&#125;;
+                  </code>
+                </pre>
+              </div>
+            </div>
+          </div>
+        </div>
       </div>
 
       {/* Slide counter & dots */}

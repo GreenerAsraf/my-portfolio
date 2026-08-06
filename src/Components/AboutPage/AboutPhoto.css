@@ -18,10 +18,10 @@
   border-radius: 36% 64% 60% 40% / 42% 44% 56% 58%;
   background: conic-gradient(
     from 0deg,
-    #58e3c4 0%,
-    #a78bfa 33%,
-    #38bdf8 66%,
-    #58e3c4 100%
+    var(--blue-primary) 0%,
+    var(--yellow-primary) 33%,
+    var(--blue-light) 66%,
+    var(--blue-primary) 100%
   );
   animation: morphBorder 8s ease-in-out infinite;
   opacity: 0.55;
@@ -58,9 +58,9 @@
   overflow: hidden;
   animation: morphBorder 8s ease-in-out infinite;
   box-shadow:
-    0 0 0 3px rgba(88, 227, 196, 0.25),
+    0 0 0 3px rgba(var(--accent-blue-rgb), 0.25),
     0 24px 64px rgba(0, 0, 0, 0.55),
-    0 0 80px rgba(88, 227, 196, 0.15);
+    0 0 80px rgba(var(--accent-blue-rgb), 0.15);
   flex-shrink: 0;
 }
 
@@ -89,8 +89,8 @@
 .about-photo-dot--1 {
   width: 14px;
   height: 14px;
-  background: #58e3c4;
-  box-shadow: 0 0 18px #58e3c4;
+  background: var(--accent-blue);
+  box-shadow: 0 0 18px var(--accent-blue);
   top: 12%;
   right: 6%;
   animation-delay: 0s;
@@ -130,7 +130,7 @@
   z-index: 4;
   background: rgba(10, 25, 47, 0.92);
   backdrop-filter: blur(12px);
-  border: 1px solid rgba(88, 227, 196, 0.35);
+  border: 1px solid rgba(var(--accent-blue-rgb), 0.35);
   border-radius: 12px;
   padding: 10px 18px;
   display: flex;
@@ -138,16 +138,16 @@
   gap: 10px;
   box-shadow:
     0 8px 32px rgba(0, 0, 0, 0.4),
-    0 0 20px rgba(88, 227, 196, 0.1);
+    0 0 20px rgba(var(--accent-blue-rgb), 0.1);
   white-space: nowrap;
 }
 
 .about-photo-badge__number {
   font-size: 1.5rem;
   font-weight: 800;
-  color: #58e3c4;
+  color: var(--accent-blue);
   line-height: 1;
-  text-shadow: 0 0 16px rgba(88, 227, 196, 0.6);
+  text-shadow: 0 0 16px rgba(var(--accent-blue-rgb), 0.6);
 }
 
 .about-photo-badge__text {

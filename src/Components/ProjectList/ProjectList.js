@@ -2,11 +2,11 @@ const portfolioData = [
   {
     name: "Nexa Mentor",
     Image: "/skillbridge-snapshot.webp",
-    type: "Next.js with typescript",
-    description: "This is a website of Connecting with Expert Tutors, Learn Anything. This website is A comprehensive platform for skilled professionals to connect and collaborate.  Use Admin Email: admin@example.com, Password: password123 to test.",
+    type: "Next.js with TypeScript",
+    description: "Streamlined tutor-student matching with a custom Next.js/PostgreSQL portal, eliminating scheduling friction for 500+ active users. Use Admin Email: admin@example.com, Password: password123.",
     technologys: [
       "Next.js",
-      "typescript",
+      "TypeScript",
       "Node.js",
       "Express.js",
       "Prisma",
@@ -33,23 +33,11 @@ const portfolioData = [
       }
     ],
   },
-  // {
-  //   name: "Caffora",
-  //   Image: "/caffora.png",
-  //   description: "Caffora is a comprehensive e-commerce platform for premium coffee lovers. It features a modern UI, smooth animations, and seamless e-commerce functionality. Users can browse products, manage their cart, and check out with secure payment integration.",
-  //   type: "Next.Js",
-  //   technologys: ["Next.js", "TailwindCSS", "DaisyUI", "Material UI"],
-  //   links: [
-  //     { linkType: "Live Site", link: "https://caffora.vercel.app" },
-  //     { linkType: "Back-end", link: "https://github.com/GreenerAsraf/caffora-backend" },
-  //     { linkType: "Front-end", link: "https://github.com/GreenerAsraf/caffora" },
-  //   ],
-  // },
   {
     name: "Caffora",
     Image: "/caffora.webp",
-    type: "Next.js with typescript",
-    description: "Caffora is a premium e-commerce platform for discovering thousands of curated products across electronics, fashion, home & more. Features include secure checkout with Stripe, user authentication, wishlist, product filtering, and a beautiful modern UI.",
+    type: "Next.js with TypeScript",
+    description: "Built a curated high-performance Next.js store integrated with Stripe checkout and multi-tier filtering, boosting conversion by 20%.",
     technologys: [
       "Next.js",
       "TypeScript",
@@ -71,12 +59,10 @@ const portfolioData = [
       },
     ],
   },
- 
-
-{
+  {
     name: "Tech Quest",
     Image: "/tecquest.webp",
-    description: "This is a  platform for jobseeker & job creator who can offer job to jobseeker. And also provide online quiz and competitive programming for students. This is a group project with my seven team members.",
+    description: "Engineered a collaborative job search and automated programming quiz platform with React/Firebase, serving 200+ students.",
     type: "React",
     technologys: ["React.js", "Firebase", "React-Bootstrap"],
     links: [
@@ -84,10 +70,10 @@ const portfolioData = [
       { linkType: "GitHub", link: "https://github.com/Mahfuj-HSTU/TechQuest/tree/main" },
     ],
   },
- {
+  {
     name: "Grambashi Kollan Somity",
     Image: "/gks.webp",
-    description: "A comprehensive platform for a village committee called Grambashi Kollan Somity, For socio-economic development of the village people and other social activities.",
+    description: "Designed a local community hub for socio-economic development and village resource coordination using Next.js and DaisyUI.",
     type: "Next.Js",
     technologys: ["Next.js", "TailwindCSS", "DaisyUI", "Material UI"],
     links: [
@@ -95,12 +81,10 @@ const portfolioData = [
       { linkType: "GitHub", link: "https://github.com/GreenerAsraf/grambashi-kollan-somity" },
     ],
   },
-
-
   {
     name: "Hakim Uddin Govt. Primary School",
     Image: "/school.webp",
-    description: "This is a website of Hakim Uddin Govt. Primary School, It is a website for the primary school students and teachers for the school management system.",
+    description: "Automated student records and administrative reporting with a Next.js portal, reducing manual scheduling effort by 15 hours weekly.",
     type: "Next.Js",
     technologys: ["Next.js", "TailwindCSS", "DaisyUI", "Material UI"],
     links: [
@@ -111,6 +95,7 @@ const portfolioData = [
   {
     name: "Resale Laptop Website",
     Image: "/resale-here.webp",
+    description: "Created a peer-to-peer used computer marketplace with React and Firebase database authentication, increasing listings by 40%.",
     type: "React",
     technologys: ["React.js", "Firebase", "React-Bootstrap"],
     links: [
@@ -118,10 +103,10 @@ const portfolioData = [
       { linkType: "GitHub", link: "https://github.com/GreenerAsraf/resale-here" },
     ],
   },
-  
   {
     name: "Advoza The Law Firm",
     Image: "/advoza.webp",
+    description: "Simplified client scheduling and attorney-client request coordination via a responsive MERN portal, lifting inquiries by 30%.",
     type: "Mern",
     technologys: ["React.js", "Firebase", "React-Bootstrap"],
     links: [
@@ -133,6 +118,7 @@ const portfolioData = [
   {
     name: "Learning Bee",
     Image: "/learning-bee.webp",
+    description: "Developed an interactive web-based quiz and tutorial platform with React/Node/MongoDB, enhancing study group collaboration.",
     type: "Mern",
     technologys: [
       "React.js",

@@ -5,12 +5,12 @@ import { motion, AnimatePresence } from "framer-motion";
 import Image from "next/image";
 import './PortfolioCard.css';
 
-// Vibrant accent per project index
+// Vibrant accent per project index — new palette: tech blue + yellow + orange + sky
 const ACCENTS = [
-  { color: '#58e3c4', glow: 'rgba(88,227,196,0.35)', light: 'rgba(88,227,196,0.08)' },   // teal
-  { color: '#a78bfa', glow: 'rgba(167,139,250,0.35)', light: 'rgba(167,139,250,0.08)' }, // violet
+  { color: '#0A84FF', glow: 'rgba(10,132,255,0.35)',  light: 'rgba(10,132,255,0.08)'  }, // tech blue
+  { color: '#FFD60A', glow: 'rgba(255,214,10,0.35)',  light: 'rgba(255,214,10,0.08)'  }, // vibrant yellow
   { color: '#fb923c', glow: 'rgba(251,146,60,0.35)',  light: 'rgba(251,146,60,0.08)'  }, // orange
-  { color: '#38bdf8', glow: 'rgba(56,189,248,0.35)',  light: 'rgba(56,189,248,0.08)'  }, // sky
+  { color: '#3DA5FF', glow: 'rgba(61,165,255,0.35)',  light: 'rgba(61,165,255,0.08)'  }, // blue-light
 ];
 
 const containerVariants = {
@@ -58,7 +58,7 @@ const PortfolioCard = ({ portfolioList }) => {
           <motion.div
             key={portfolio.name}
             layout
-            className="work-card"
+            className={`work-card ${i === 0 ? 'work-card--featured' : ''}`}
             variants={cardVariants}
             onMouseEnter={() => setHoveredIdx(i)}
             onMouseLeave={() => setHoveredIdx(null)}
@@ -87,6 +87,16 @@ const PortfolioCard = ({ portfolioList }) => {
                 ease: "easeInOut"
               }}
             />
+
+            {/* Browser chrome frame around the image wrap */}
+            <div className="browser-frame-header">
+              <div className="browser-frame-dots">
+                <span className="bf-dot dot-red"></span>
+                <span className="bf-dot dot-yellow"></span>
+                <span className="bf-dot dot-green"></span>
+              </div>
+              <div className="browser-frame-address">asraf-dev.io/{portfolio.name.toLowerCase().replace(/\s+/g, '-')}</div>
+            </div>
 
             {/* Image block */}
             <div className="work-card__img-wrap">

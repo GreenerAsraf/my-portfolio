@@ -1,17 +1,41 @@
 import React from "react";
+import { useLanguage } from "../../LanguageProvider/LanguageProvider";
 
 const AboutDetails = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="light__white__color mb-4">
-        <h2>I'm <span className="light__green__color">Mohammed Asraf Uddin</span></h2>
-      <p className="mt-3" style={{ fontSize: "1.1rem", lineHeight: "1.8" }}>
-        I am a self-motivated and enthusiastic Full Stack Web Developer with a deep passion for building scalable, high-performance web applications using the MERN stack and Next.js. I constantly strive to explore modern web technologies and craft beautiful, user-centric experiences.
+      <h2>
+        I&apos;m{" "}
+        <span className="light__green__color">{t.hero.name}</span>
+      </h2>
+
+      <p className="mt-3" style={{ fontSize: "1.1rem", lineHeight: "1.85" }}>
+        {t.about.p1}
       </p>
-      <p style={{ fontSize: "1.1rem", lineHeight: "1.8" }}>
-        My goal is to work alongside talented teams in the Software and IT industry, contributing to meaningful projects that solve real-world problems. Whether I'm designing complex databases or implementing fluid front-end animations, I bring dedication and a keen eye for detail to every line of code I write.
+
+      <p style={{ fontSize: "1.1rem", lineHeight: "1.85" }}>
+        {t.about.p2}
+      </p>
+
+      {/* ── Bilingual Note (Bangla) ── */}
+      <p
+        style={{
+          fontSize: "1rem",
+          lineHeight: "1.9",
+          opacity: 0.75,
+          fontStyle: "italic",
+          borderLeft: "3px solid var(--primary-color, #00c896)",
+          paddingLeft: "0.85rem",
+          marginTop: "1.25rem",
+        }}
+      >
+        {t.about.bilingualNote}
       </p>
     </section>
   );
 };
 
 export default AboutDetails;
+

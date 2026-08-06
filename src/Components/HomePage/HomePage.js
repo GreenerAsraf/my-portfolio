@@ -9,6 +9,7 @@ import FadeInSection from "../ShearedFolder/FadeInSection/FadeInSection";
 import "./HomePage.css";
 
 const StatsCounter = dynamic(() => import("./StatsCounter/StatsCounter"));
+const HomeAbout = dynamic(() => import("./HomeAbout/HomeAbout"));
 const SomeWork = dynamic(() => import("./SomeWork/SomeWork"));
 const Skills = dynamic(() => import("./Skills/Skills"));
 const ExperienceTimeline = dynamic(() => import("./ExperienceTimeline/ExperienceTimeline"));
@@ -38,6 +39,10 @@ const HomePage = () => {
 
         <div className="homepage-content">
           <FadeInSection direction="up" delay={0}>
+            <HomeAbout />
+          </FadeInSection>
+
+          <FadeInSection direction="up" delay={0.05}>
             <SomeWork />
           </FadeInSection>
 

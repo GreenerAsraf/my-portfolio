@@ -5,11 +5,13 @@ import { Button, Nav, Navbar } from "react-bootstrap";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "../ThemeProvider/ThemeProvider";
+import { useLanguage } from "../LanguageProvider/LanguageProvider";
 import "./Menu.css";
 
 const Menu = () => {
   const pathname = usePathname();
   const { theme, toggleTheme } = useTheme();
+  const { language, changeLanguage, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
 
   const isActive = (href) => pathname === href;
@@ -38,15 +40,15 @@ const Menu = () => {
         {/* Infinite Loop Marquee Ticker */}
         <div className="navbar-ticker d-none d-lg-flex">
           <div className="ticker-track">
-            <span className="ticker-item">🟢 Open for Opportunities</span>
-            <span className="ticker-item">⚡ Next.js & React</span>
-            <span className="ticker-item">💻 MERN Stack</span>
-            <span className="ticker-item">🚀 Clean Architecture</span>
+            <span className="ticker-item">{t.nav.ticker1}</span>
+            <span className="ticker-item">{t.nav.ticker2}</span>
+            <span className="ticker-item">{t.nav.ticker3}</span>
+            <span className="ticker-item">{t.nav.ticker4}</span>
             {/* Duplicate set for seamless looping */}
-            <span className="ticker-item">🟢 Open for Opportunities</span>
-            <span className="ticker-item">⚡ Next.js & React</span>
-            <span className="ticker-item">💻 MERN Stack</span>
-            <span className="ticker-item">🚀 Clean Architecture</span>
+            <span className="ticker-item">{t.nav.ticker1}</span>
+            <span className="ticker-item">{t.nav.ticker2}</span>
+            <span className="ticker-item">{t.nav.ticker3}</span>
+            <span className="ticker-item">{t.nav.ticker4}</span>
           </div>
         </div>
 
@@ -57,38 +59,63 @@ const Menu = () => {
               href="/home"
               className={`nav-link ${isActive("/home") || isActive("/") ? "active" : ""}`}
             >
-              Home
+              {t.nav.home}
             </Link>
             <Link
               href="/about"
               className={`nav-link ${isActive("/about") ? "active" : ""}`}
             >
-              About
+              {t.nav.about}
             </Link>
             <Link
               href="/portfolio"
               className={`nav-link ${isActive("/portfolio") ? "active" : ""}`}
             >
-              Portfolio
+              {t.nav.portfolio}
             </Link>
             <Link
               href="/pricing"
               className={`nav-link ${isActive("/pricing") ? "active" : ""}`}
             >
-              Pricing
+              {t.nav.pricing}
             </Link>
             <Link
               href="/blog"
               className={`nav-link ${isActive("/blog") ? "active" : ""}`}
             >
-              Blog
+              {t.nav.blog}
             </Link>
             <Link
               href="/contact"
               className={`nav-link ${isActive("/contact") ? "active" : ""}`}
             >
-              Contact
+              {t.nav.contact}
             </Link>
+
+            {/* Language Switcher Dropdown */}
+            <div className="lang-dropdown ml-md-2 mr-md-2">
+              <button className="lang-btn" aria-label="Select Language">
+                <span className="lang-flag">{language === "bn" ? "🇧🇩" : "🇺🇸"}</span>
+                <span className="lang-code">{language === "bn" ? "বাংলা" : "EN"}</span>
+                <svg className="lang-btn__chevron" width="10" height="10" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
+                  <polyline points="6 9 12 15 18 9" />
+                </svg>
+              </button>
+              <div className="lang-dropdown__menu">
+                <button
+                  onClick={() => changeLanguage("en")}
+                  className={`lang-dropdown__item ${language === "en" ? "active" : ""}`}
+                >
+                  <span>🇺🇸</span> English (EN)
+                </button>
+                <button
+                  onClick={() => changeLanguage("bn")}
+                  className={`lang-dropdown__item ${language === "bn" ? "active" : ""}`}
+                >
+                  <span>🇧🇩</span> বাংলা (BN)
+                </button>
+              </div>
+            </div>
 
             {/* Theme Toggle Button */}
             <button
@@ -102,7 +129,7 @@ const Menu = () => {
             {/* Resume dropdown */}
             <div className="resume-dropdown ml-md-3">
               <button className="resume-btn">
-                Resume
+                {t.nav.resume}
                 <svg className="resume-btn__chevron" width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
                   <polyline points="6 9 12 15 18 9" />
                 </svg>
@@ -117,7 +144,7 @@ const Menu = () => {
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M1 12s4-8 11-8 11 8 11 8-4 8-11 8-11-8-11-8z"/><circle cx="12" cy="12" r="3"/>
                   </svg>
-                  View
+                  {t.nav.view}
                 </a>
                 <a
                   href="https://docs.google.com/document/d/1uKyIuKQpeRYfjg9jcU8ATSlvuI6xTzJ7K6GWFDwwnAI/export?format=pdf"
@@ -127,7 +154,7 @@ const Menu = () => {
                   <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
                     <path d="M21 15v4a2 2 0 01-2 2H5a2 2 0 01-2-2v-4"/><polyline points="7 10 12 15 17 10"/><line x1="12" y1="15" x2="12" y2="3"/>
                   </svg>
-                  Download
+                  {t.nav.download}
                 </a>
               </div>
             </div>
@@ -139,3 +166,4 @@ const Menu = () => {
 };
 
 export default Menu;
+

@@ -23,9 +23,9 @@
   font-weight: 700;
   letter-spacing: 3px;
   text-transform: uppercase;
-  color: #58e3c4;
-  background: rgba(88, 227, 196, 0.08);
-  border: 1px solid rgba(88, 227, 196, 0.25);
+  color: var(--accent-blue);
+  background: rgba(var(--accent-blue-rgb), 0.08);
+  border: 1px solid rgba(var(--accent-blue-rgb), 0.25);
   border-radius: 999px;
   padding: 5px 16px;
 }
@@ -40,7 +40,7 @@
 }
 
 .stats-heading__gradient {
-  background: linear-gradient(135deg, #58e3c4 0%, #a78bfa 50%, #fb923c 100%);
+  background: linear-gradient(135deg, var(--blue-primary) 0%, var(--yellow-primary) 50%, var(--blue-light) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -63,7 +63,7 @@
 
 /* Individual Card */
 .stat-card {
-  --accent: #58e3c4;
+  --accent: var(--blue-primary);
   position: relative;
   background: rgba(255, 255, 255, 0.04);
   border: 1px solid rgba(255, 255, 255, 0.09);

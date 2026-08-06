@@ -14,7 +14,7 @@ const stats = [
         <circle cx="12" cy="12" r="10" /><polyline points="12 6 12 12 16 14" />
       </svg>
     ),
-    accent: "#58e3c4",
+    accent: "#0A84FF",
     desc: "Building production apps",
   },
   {
@@ -26,7 +26,7 @@ const stats = [
         <rect x="2" y="3" width="20" height="14" rx="2" /><path d="M8 21h8M12 17v4" />
       </svg>
     ),
-    accent: "#a78bfa",
+    accent: "#FFD60A",
     desc: "Across web & mobile",
   },
   {
