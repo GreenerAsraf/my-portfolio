@@ -5,8 +5,11 @@ import ArticelCard from "../../ShearedFolder/ArticelCard/ArticelCard";
 import ArticelData from "../../ShearedFolder/ArticelData/ArticelData";
 import Link from "next/link";
 import "./SomeArticels.css";
+import { useLanguage } from "../../LanguageProvider/LanguageProvider";
 
 const SomeArticels = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="somearticels-section container">
 
@@ -26,7 +29,7 @@ const SomeArticels = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            Insights & Writing
+            {t.articles.label}
           </motion.span>
 
           <motion.h2
@@ -36,8 +39,8 @@ const SomeArticels = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.55, delay: 0.2 }}
           >
-            Some of{" "}
-            <span className="somearticels-title__gradient">my articles</span>
+            {t.articles.heading}{" "}
+            <span className="somearticels-title__gradient">{t.articles.headingGradient}</span>
           </motion.h2>
 
           {/* Animated underline */}
@@ -57,7 +60,7 @@ const SomeArticels = () => {
           transition={{ duration: 0.5, delay: 0.3 }}
         >
           <Link href="/blog" className="somearticels-all-btn">
-            View all articles
+            {t.articles.viewAll}
             <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2.5">
               <line x1="5" y1="12" x2="19" y2="12" />
               <polyline points="12 5 19 12 12 19" />

@@ -3,45 +3,49 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import './ExperienceTimeline.css';
 
-const timelineData = [
-  {
-    year: "Jan 2026 - Jun 2026",
-    title: "Next Level AI-Driven Software Engineering Bootcamp",
-    company: "Programming Hero",
-    description: "Acquired advanced software engineering skills, focusing on clean architecture, AI integration, design patterns, and enterprise-grade software development methodologies.",
-    accent: "var(--accent-teal)"
-  },
-  {
-    year: "2022 - Present",
-    title: "Complete Web Development Course",
-    company: "Programming Hero",
-    description: "Built a solid foundation in modern full-stack web development. Learnt HTML, CSS, JavaScript, React, Node.js, Express, MongoDB, and Next.js through building real-world projects.",
-    accent: "var(--accent-violet)"
-  },
-  {
-    year: "Sep 2022 - Oct 2022",
-    title: "JavaScript Course (Batch 2, Roll-37)",
-    company: "NACTAR",
-    description: "Completed intensive training on core programming concepts, algorithms, data structures, and DOM manipulation in JavaScript.",
-    accent: "var(--accent-teal)"
-  },
-  {
-    year: "2015 - 2016",
-    title: "MBA in Accounting",
-    company: "University of Chittagong",
-    description: "Master of Business Administration, specializing in Accounting. Developed strong analytical thinking, problem-solving skills, and financial systems knowledge.",
-    accent: "var(--accent-violet)"
-  },
-  {
-    year: "2010 - 2014",
-    title: "BBA in Accounting",
-    company: "University of Chittagong",
-    description: "Bachelor of Business Administration, specializing in Accounting. Acquired fundamental business management, analytical, and data organization concepts.",
-    accent: "var(--accent-teal)"
-  }
-];
+import { useLanguage } from '../../LanguageProvider/LanguageProvider';
 
 const ExperienceTimeline = () => {
+  const { t } = useLanguage();
+
+  const timelineData = [
+    {
+      year: t.experience.t1Year,
+      title: t.experience.t1Title,
+      company: t.experience.t1Company,
+      description: t.experience.t1Desc,
+      accent: "var(--accent-teal)"
+    },
+    {
+      year: t.experience.t2Year,
+      title: t.experience.t2Title,
+      company: t.experience.t2Company,
+      description: t.experience.t2Desc,
+      accent: "var(--accent-violet)"
+    },
+    {
+      year: t.experience.t3Year,
+      title: t.experience.t3Title,
+      company: t.experience.t3Company,
+      description: t.experience.t3Desc,
+      accent: "var(--accent-teal)"
+    },
+    {
+      year: t.experience.t4Year,
+      title: t.experience.t4Title,
+      company: t.experience.t4Company,
+      description: t.experience.t4Desc,
+      accent: "var(--accent-violet)"
+    },
+    {
+      year: t.experience.t5Year,
+      title: t.experience.t5Title,
+      company: t.experience.t5Company,
+      description: t.experience.t5Desc,
+      accent: "var(--accent-teal)"
+    }
+  ];
+
   return (
     <section className="timeline-section container my-5">
       <motion.div
@@ -51,8 +55,8 @@ const ExperienceTimeline = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <span className="timeline-label">Journey</span>
-        <h2 className="timeline-title">Experience & Education</h2>
+        <span className="timeline-label">{t.experience.label}</span>
+        <h2 className="timeline-title">{t.experience.heading}</h2>
         <div className="timeline-divider mx-auto" />
       </motion.div>
 

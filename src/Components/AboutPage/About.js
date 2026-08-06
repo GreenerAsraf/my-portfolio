@@ -6,8 +6,11 @@ import { motion } from "framer-motion";
 import AboutDetails from "./AboutDetails/AboutDetails";
 import SkillsDetails from "./SkillDetails/SkillsDetails";
 import "./AboutPhoto.css";
+import { useLanguage } from "../LanguageProvider/LanguageProvider";
 
 const About = () => {
+  const { t } = useLanguage();
+
   return (
     <section className="container">
       <div className="row pt-5 align-items-center">
@@ -48,7 +51,7 @@ const About = () => {
               <span className="about-photo-badge__number">2+</span>
               <span className="about-photo-badge__text">
                 <strong>Years</strong>
-                of Experience
+                {t.about.exp}
               </span>
             </motion.div>
 
@@ -60,7 +63,7 @@ const About = () => {
               viewport={{ once: true }}
               transition={{ delay: 0.6, duration: 0.4 }}
             >
-              Full Stack Dev
+              {t.about.badgeTitle}
             </motion.span>
           </motion.div>
         </div>

@@ -4,11 +4,18 @@ import React, { useState } from "react";
 import PortfolioCard from "../ShearedFolder/PortfolioCard/PortfolioCard";
 import "./PortfolioPage.css";
 import portfolioList from "../ProjectList/ProjectList";
-
-const FILTERS = ["All", "Next.js", "React", "MERN"];
+import { useLanguage } from "../../LanguageProvider/LanguageProvider";
 
 const PortfolioPage = () => {
+  const { t } = useLanguage();
   const [activeFilter, setActiveFilter] = useState("All");
+
+  const FILTERS = [
+    { key: "All", label: t.portfolio.filters.all },
+    { key: "Next.js", label: t.portfolio.filters.next },
+    { key: "React", label: t.portfolio.filters.react },
+    { key: "MERN", label: t.portfolio.filters.mern }
+  ];
 
   const filteredProjects = portfolioList.filter((project) => {
     if (activeFilter === "All") return true;
@@ -22,17 +29,17 @@ const PortfolioPage = () => {
 
   return (
     <section className="container pt-5">
-      <h2 className="light__white__color mb-4 section__title">My Works</h2>
+      <h2 className="light__white__color mb-4 section__title">{t.portfolio.heading}</h2>
       
       {/* Category Filter Pills */}
       <div className="portfolio-filters">
         {FILTERS.map((filter) => (
           <button
-            key={filter}
-            className={`filter-btn ${activeFilter === filter ? "filter-btn--active" : ""}`}
-            onClick={() => setActiveFilter(filter)}
+            key={filter.key}
+            className={`filter-btn ${activeFilter === filter.key ? "filter-btn--active" : ""}`}
+            onClick={() => setActiveFilter(filter.key)}
           >
-            {filter}
+            {filter.label}
           </button>
         ))}
       </div>

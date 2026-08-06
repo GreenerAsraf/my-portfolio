@@ -2,10 +2,12 @@
 import React, { useState } from "react";
 import { motion } from "framer-motion";
 import './GetInTouchHome.css';
-
 import emailjs from "emailjs-com";
 
+import { useLanguage } from "../../LanguageProvider/LanguageProvider";
+
 const GetInTouchHome = () => {
+  const { t } = useLanguage();
   const [formData, setFormData] = useState({ name: '', email: '', message: '' });
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [isSuccess, setIsSuccess] = useState(false);
@@ -56,7 +58,7 @@ const GetInTouchHome = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.1 }}
           >
-            What's Next?
+            {t.contact.label}
           </motion.p>
 
           <motion.h2
@@ -66,7 +68,7 @@ const GetInTouchHome = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.22 }}
           >
-            Get In Touch
+            {t.contact.heading} <span className="title-gradient">{t.contact.headingGradient}</span>
           </motion.h2>
 
           <motion.p
@@ -76,7 +78,7 @@ const GetInTouchHome = () => {
             viewport={{ once: true }}
             transition={{ duration: 0.5, delay: 0.34 }}
           >
-            I'm currently looking for new opportunities. Whether you have a question or just want to say hi, my inbox is always open.
+            {t.contact.subtitle}
           </motion.p>
 
           <motion.div 
@@ -120,7 +122,7 @@ const GetInTouchHome = () => {
               <input 
                 type="text" 
                 name="name" 
-                placeholder="Your Name" 
+                placeholder={t.contact.nameLabel} 
                 value={formData.name}
                 onChange={handleChange}
                 required 
@@ -130,7 +132,7 @@ const GetInTouchHome = () => {
               <input 
                 type="email" 
                 name="email" 
-                placeholder="Your Email" 
+                placeholder={t.contact.emailLabel} 
                 value={formData.email}
                 onChange={handleChange}
                 required 
@@ -139,7 +141,7 @@ const GetInTouchHome = () => {
             <div className="form-group">
               <textarea 
                 name="message" 
-                placeholder="Your Message" 
+                placeholder={t.contact.messageLabel} 
                 rows="4"
                 value={formData.message}
                 onChange={handleChange}
@@ -157,9 +159,9 @@ const GetInTouchHome = () => {
               {isSubmitting ? (
                 <span className="spinner"></span>
               ) : isSuccess ? (
-                "Message Sent! ✓"
+                t.contact.successMsg
               ) : (
-                "Send Message"
+                t.contact.sendBtn
               )}
             </motion.button>
           </form>

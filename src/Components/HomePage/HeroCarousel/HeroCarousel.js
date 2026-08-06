@@ -37,59 +37,61 @@ const useTypewriter = (texts, { typingSpeed = 80, deletingSpeed = 45, pauseMs = 
   return display;
 };
 
-// ── Slide data ───────────────────────────────────────────────
-const slides = [
+import { useLanguage } from "../../LanguageProvider/LanguageProvider";
+
+// ── Slide data generator ───────────────────────────────────────────────
+const getSlides = (t) => [
   {
     id: 0,
     bg: "/carousel/bg_asraf.webp",
-    tag: "Mohammed Asraf Uddin",
-    headline: "Mohammed Asraf Uddin",
-    sub: "Professional Full-Stack Web Developer. Crafting high-performance, modern applications with React, Next.js, Node.js, and MongoDB.",
+    tag: t.hero.name,
+    headline: t.hero.name,
+    sub: t.hero.tagline,
     accent: "#0A84FF",
   },
   {
     id: 1,
     bg: "/carousel/bg1.webp",
-    tag: "Full Stack Developer",
-    headline: "Building Modern Web Experiences",
-    sub: "Crafting scalable, high-performance apps with React, Next.js & Node.",
+    tag: t.hero.role,
+    headline: t.hero.greeting + " " + t.hero.name,
+    sub: t.hero.tagline,
     accent: "#0A84FF",
   },
   {
     id: 2,
     bg: "/carousel/bg2.webp",
-    tag: "Next.js & React Expert",
-    headline: "Pixel-Perfect UI, Lightning Fast",
-    sub: "Delivering beautiful interfaces that users love and businesses trust.",
+    tag: "Next.js & React",
+    headline: t.about.heading + " " + t.about.headingGradient,
+    sub: t.skills.subtitle,
     accent: "#FFD60A",
   },
   {
     id: 3,
     bg: "/carousel/bg3.webp",
-    tag: "Backend & Database",
-    headline: "Robust APIs & Smart Data Models",
-    sub: "Node.js, Express, MongoDB & Prisma — engineered for scale.",
+    tag: t.skills.backend,
+    headline: t.skills.backendDesc,
+    sub: t.skills.subtitle,
     accent: "#f59e0b",
   },
   {
     id: 4,
     bg: "/carousel/bg2.webp",
-    tag: "Open for Opportunities",
-    headline: "Let's Build Something Amazing",
-    sub: "I'm available for freelance work and full-time positions worldwide.",
+    tag: t.nav.ticker1,
+    headline: t.contact.heading + " " + t.contact.headingGradient,
+    sub: t.contact.subtitle,
     accent: "#3DA5FF",
   },
   {
     id: 5,
     bg: "/carousel/bg5.webp",
-    tag: "Creative Problem Solver",
-    headline: "Turning Ideas Into Reality",
-    sub: "From concept to deployment — bringing your vision to life with clean code.",
+    tag: t.about.label,
+    headline: t.about.heading + " " + t.about.headingGradient,
+    sub: t.about.p1,
     accent: "#ec4899",
   },
 ];
 
-const ROLE_TEXTS = slides.map((s) => s.tag);
+
 const DURATION = 6000;
 
 const textVariants = {
@@ -115,6 +117,10 @@ const slideVariants = {
 };
 
 const HeroCarousel = () => {
+  const { t } = useLanguage();
+  const slides = getSlides(t);
+  const ROLE_TEXTS = slides.map((s) => s.tag);
+
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
   const [progress, setProgress] = useState(0);
@@ -123,6 +129,7 @@ const HeroCarousel = () => {
 
   // Typewriter for the role tag
   const typedTag = useTypewriter(ROLE_TEXTS, { typingSpeed: 75, deletingSpeed: 40, pauseMs: 2000 });
+
 
   const goTo = useCallback((idx, dir) => {
     setDirection(dir);
@@ -266,12 +273,13 @@ const HeroCarousel = () => {
                 exit="exit"
               >
                 <a href="/about" className="hero-btn primary" style={{ background: slide.accent, color: "#0A192F" }}>
-                  About Me
+                  {t.hero.viewWork}
                 </a>
                 <a href="/contact" className="hero-btn outline" style={{ borderColor: slide.accent, color: slide.accent }}>
-                  Get in Touch
+                  {t.hero.contactMe}
                 </a>
               </motion.div>
+
             </motion.div>
           </AnimatePresence>
 

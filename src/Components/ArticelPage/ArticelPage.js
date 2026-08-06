@@ -3,8 +3,11 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import ArticelCard from '../ShearedFolder/ArticelCard/ArticelCard';
 import articelList from '../ShearedFolder/ArticelData/ArticelData';
+import { useLanguage } from "../../LanguageProvider/LanguageProvider";
 
 const ArticelPage = () => {
+    const { t } = useLanguage();
+    
     return (
         <section className="container" style={{ paddingTop: '100px', paddingBottom: '60px' }}>
             <motion.div
@@ -30,7 +33,7 @@ const ArticelPage = () => {
                         marginBottom: '16px'
                     }}
                 >
-                    Writings & Thoughts
+                    {t.blog.label}
                 </motion.span>
                 <motion.h2 
                     initial={{ opacity: 0, y: 15 }}
@@ -44,12 +47,13 @@ const ArticelPage = () => {
                         letterSpacing: '-0.5px'
                     }}
                 >
-                    My <span style={{
+                    {t.blog.heading}{" "} 
+                    <span style={{
                         background: 'linear-gradient(135deg, #a78bfa 0%, #38bdf8 100%)',
                         WebkitBackgroundClip: 'text',
                         WebkitTextFillColor: 'transparent',
                         backgroundClip: 'text'
-                    }}>Blogs</span>
+                    }}>{t.blog.headingGradient}</span>
                 </motion.h2>
                 <motion.p
                     initial={{ opacity: 0 }}
@@ -63,7 +67,7 @@ const ArticelPage = () => {
                         lineHeight: '1.7'
                     }}
                 >
-                    Exploring web development, software engineering best practices, and the journey of building scalable applications.
+                    {t.blog.subtitle}
                 </motion.p>
             </motion.div>
 

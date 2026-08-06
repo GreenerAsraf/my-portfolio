@@ -5,7 +5,11 @@ import { Form } from "react-bootstrap";
 import "./ContactPage.css";
 import emailjs from "emailjs-com";
 
+import { useLanguage } from "../LanguageProvider/LanguageProvider";
+
 const ContactPage = () => {
+  const { t } = useLanguage();
+
   function sendEmail(e) {
     e.preventDefault();
 
@@ -19,7 +23,7 @@ const ContactPage = () => {
       .then(
         (result) => {
           alert(
-            "Thanks for your message. We will replay you as soon as possibale"
+            t.contact.successMsg || "Thanks for your message. We will replay you as soon as possibale"
           );
         },
         (error) => {
@@ -32,12 +36,12 @@ const ContactPage = () => {
   return (
     <section className="container mt-5">
       <div className="col-md-6 mx-auto contact__form p-3 rounded px-4">
-        <h2 className="light__white__color text-center mb-4">Get In Touch</h2>
+        <h2 className="light__white__color text-center mb-4">{t.contact.label}</h2>
         <Form onSubmit={sendEmail}>
           <Form.Group controlId="contactName">
             <Form.Control
               type="text"
-              placeholder="Your Name"
+              placeholder={t.contact.nameLabel}
               required
               name="name"
             />
@@ -45,7 +49,7 @@ const ContactPage = () => {
           <Form.Group controlId="contactEmail">
             <Form.Control
               type="email"
-              placeholder="Your Email"
+              placeholder={t.contact.emailLabel}
               name="email"
               required
             />
@@ -54,12 +58,12 @@ const ContactPage = () => {
             <Form.Control
               as="textarea"
               rows={3}
-              placeholder="Your Message"
+              placeholder={t.contact.messageLabel}
               name="message"
               required
             />
           </Form.Group>
-          <input type="submit" className="btn btn-success" value="Send" />
+          <input type="submit" className="btn btn-success" value={t.contact.sendBtn || "Send"} />
         </Form>
       </div>
     </section>

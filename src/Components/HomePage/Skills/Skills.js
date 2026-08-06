@@ -47,42 +47,45 @@ const TAILWIND_SVG = (
   </svg>
 );
 
-const skillCategories = [
-  {
-    title: "Frontend Development",
-    icon: faDesktop,
-    description: "Building responsive and interactive user interfaces using modern web technologies.",
-    skills: [
-      { name: 'React.js', icon: faReact, color: '#61DAFB', level: '95%', levelNum: 95, tag: 'Expert' },
-      { name: 'Next.js', svg: NEXT_JS_SVG, color: '#ffffff', level: '90%', levelNum: 90, tag: 'Expert' },
-      { name: 'JavaScript', icon: faJsSquare, color: '#F7DF1E', level: '95%', levelNum: 95, tag: 'Expert' },
-      { name: 'TailwindCSS', svg: TAILWIND_SVG, color: '#38B2AC', level: '90%', levelNum: 90, tag: 'Expert' },
-    ]
-  },
-  {
-    title: "Backend Development",
-    icon: faServer,
-    description: "Creating robust and scalable server-side applications and APIs.",
-    skills: [
-      { name: 'Node.js', icon: faNodeJs, color: '#68A063', level: '90%', levelNum: 90, tag: 'Expert' },
-      { name: 'Express.js', svg: EXPRESS_SVG, color: '#61DAFB', level: '90%', levelNum: 90, tag: 'Expert' },
-    ]
-  },
-  {
-    title: "Database & Tools",
-    icon: faDatabase,
-    description: "Managing data and utilizing tools for efficient development workflows.",
-    skills: [
-      { name: 'MongoDB', svg: MONGODB_SVG, color: '#47A248', level: '85%', levelNum: 85, tag: 'Proficient' },
-      { name: 'Prisma', svg: PRISMA_SVG, color: '#5A67D8', level: '80%', levelNum: 80, tag: 'Proficient' },
-      { name: 'Git', icon: faGitAlt, color: '#F05032', level: '90%', levelNum: 90, tag: 'Expert' },
-      { name: 'GitHub', icon: faGithub, color: '#ffffff', level: '95%', levelNum: 95, tag: 'Expert' },
-    ]
-  }
-];
-
+import { useLanguage } from '../../LanguageProvider/LanguageProvider';
 
 const Skills = () => {
+  const { t } = useLanguage();
+
+  const skillCategories = [
+    {
+      title: t.skills.frontend,
+      icon: faDesktop,
+      description: t.skills.frontendDesc,
+      skills: [
+        { name: 'React.js', icon: faReact, color: '#61DAFB', level: '95%', levelNum: 95, tag: t.skills.expert },
+        { name: 'Next.js', svg: NEXT_JS_SVG, color: '#ffffff', level: '90%', levelNum: 90, tag: t.skills.expert },
+        { name: 'JavaScript', icon: faJsSquare, color: '#F7DF1E', level: '95%', levelNum: 95, tag: t.skills.expert },
+        { name: 'TailwindCSS', svg: TAILWIND_SVG, color: '#38B2AC', level: '90%', levelNum: 90, tag: t.skills.expert },
+      ]
+    },
+    {
+      title: t.skills.backend,
+      icon: faServer,
+      description: t.skills.backendDesc,
+      skills: [
+        { name: 'Node.js', icon: faNodeJs, color: '#68A063', level: '90%', levelNum: 90, tag: t.skills.expert },
+        { name: 'Express.js', svg: EXPRESS_SVG, color: '#61DAFB', level: '90%', levelNum: 90, tag: t.skills.expert },
+      ]
+    },
+    {
+      title: t.skills.database,
+      icon: faDatabase,
+      description: t.skills.databaseDesc,
+      skills: [
+        { name: 'MongoDB', svg: MONGODB_SVG, color: '#47A248', level: '85%', levelNum: 85, tag: t.skills.proficient },
+        { name: 'Prisma', svg: PRISMA_SVG, color: '#5A67D8', level: '80%', levelNum: 80, tag: t.skills.proficient },
+        { name: 'Git', icon: faGitAlt, color: '#F05032', level: '90%', levelNum: 90, tag: t.skills.expert },
+        { name: 'GitHub', icon: faGithub, color: '#ffffff', level: '95%', levelNum: 95, tag: t.skills.expert },
+      ]
+    }
+  ];
+
   return (
     <section className="skills-section container">
 
@@ -101,7 +104,7 @@ const Skills = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.1 }}
         >
-          Technical Expertise
+          {t.skills.label}
         </motion.span>
 
         {/* Main headline with gradient words */}
@@ -112,9 +115,9 @@ const Skills = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.65, delay: 0.2 }}
         >
-          Full-Stack{' '}
-          <span className="skills-heading-gradient">Developer</span>
-          {' '}by Craft
+          {t.skills.heading}{' '}
+          <span className="skills-heading-gradient">{t.skills.headingGradient}</span>
+          {' '}{t.skills.headingEnd}
         </motion.h2>
 
         {/* Animated divider */}
@@ -134,10 +137,10 @@ const Skills = () => {
           viewport={{ once: true }}
           transition={{ duration: 0.6, delay: 0.45 }}
         >
-          Specializing in modern JavaScript ecosystems — from pixel-perfect UIs
-          to scalable, production-ready back-end architectures.
+          {t.skills.subtitle}
         </motion.p>
       </motion.div>
+
 
       <div className="expertise-container">
         {skillCategories.map((category, index) => (

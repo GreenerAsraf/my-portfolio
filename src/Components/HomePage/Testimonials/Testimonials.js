@@ -3,26 +3,29 @@ import React, { useState } from 'react';
 import { motion, AnimatePresence } from 'framer-motion';
 import './Testimonials.css';
 
-const testimonialsData = [
-  {
-    quote: "Asraf is an exceptional full-stack developer. His attention to detail and ability to craft beautiful, performant user interfaces is truly unmatched. He elevated our entire web platform.",
-    author: "Sarah Jenkins",
-    role: "Product Manager at TechNova"
-  },
-  {
-    quote: "Working with Asraf was a breeze. He takes complex backend requirements and turns them into elegant, scalable solutions. A true professional who always delivers on time.",
-    author: "Michael Chang",
-    role: "CTO, Creative Agency"
-  },
-  {
-    quote: "One of the most dedicated engineers I've worked with. Not only is his code clean and maintainable, but his eye for modern design brings every project to life.",
-    author: "Elena Rodriguez",
-    role: "Lead Designer, Freelance Client"
-  }
-];
+import { useLanguage } from '../../LanguageProvider/LanguageProvider';
 
 const Testimonials = () => {
+  const { t } = useLanguage();
   const [currentIndex, setCurrentIndex] = useState(0);
+
+  const testimonialsData = [
+    {
+      quote: t.testimonials.t1Quote,
+      author: t.testimonials.t1Author,
+      role: t.testimonials.t1Role
+    },
+    {
+      quote: t.testimonials.t2Quote,
+      author: t.testimonials.t2Author,
+      role: t.testimonials.t2Role
+    },
+    {
+      quote: t.testimonials.t3Quote,
+      author: t.testimonials.t3Author,
+      role: t.testimonials.t3Role
+    }
+  ];
 
   const nextTestimonial = () => {
     setCurrentIndex((prev) => (prev === testimonialsData.length - 1 ? 0 : prev + 1));
@@ -41,8 +44,8 @@ const Testimonials = () => {
         viewport={{ once: true }}
         transition={{ duration: 0.6 }}
       >
-        <span className="testimonials-label">Feedback</span>
-        <h2 className="testimonials-title">What People Say</h2>
+        <span className="testimonials-label">{t.testimonials.label}</span>
+        <h2 className="testimonials-title">{t.testimonials.heading}</h2>
       </motion.div>
 
       <div className="testimonials-wrapper">
