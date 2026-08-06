@@ -119,7 +119,7 @@ const slideVariants = {
 const HeroCarousel = () => {
   const { t } = useLanguage();
   const slides = getSlides(t);
-  const ROLE_TEXTS = slides.map((s) => s.tag);
+  const ROLE_TEXTS = React.useMemo(() => slides.map((s) => s.tag), [t]);
 
   const [current, setCurrent] = useState(0);
   const [direction, setDirection] = useState(1);
