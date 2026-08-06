@@ -3,7 +3,7 @@ import React from 'react';
 import { motion } from 'framer-motion';
 import ArticelCard from '../ShearedFolder/ArticelCard/ArticelCard';
 import articelList from '../ShearedFolder/ArticelData/ArticelData';
-import { useLanguage } from "../../LanguageProvider/LanguageProvider";
+import { useLanguage } from "../LanguageProvider/LanguageProvider";
 
 const ArticelPage = () => {
     const { t } = useLanguage();

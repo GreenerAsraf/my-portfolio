@@ -4,7 +4,7 @@ import React from 'react';
 import { Container, Row, Col, Card, Button } from 'react-bootstrap';
 import './PricingPage.css';
 
-import { useLanguage } from "../../LanguageProvider/LanguageProvider";
+import { useLanguage } from "../LanguageProvider/LanguageProvider";
 
 const PricingPage = () => {
   const { t } = useLanguage();

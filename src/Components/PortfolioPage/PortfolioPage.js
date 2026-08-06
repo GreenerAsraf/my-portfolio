@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import PortfolioCard from "../ShearedFolder/PortfolioCard/PortfolioCard";
 import "./PortfolioPage.css";
 import portfolioList from "../ProjectList/ProjectList";
-import { useLanguage } from "../../LanguageProvider/LanguageProvider";
+import { useLanguage } from "../LanguageProvider/LanguageProvider";
 
 const PortfolioPage = () => {
   const { t } = useLanguage();
