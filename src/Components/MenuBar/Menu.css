@@ -226,6 +226,29 @@
 }
 
 /* =========================================
+   Desktop (≥768px) — full navbar, no hamburger
+   ========================================= */
+
+@media (min-width: 768px) {
+  .navbar-toggler {
+    display: none !important;
+  }
+
+  .navbar-collapse.collapse {
+    display: flex !important;
+    flex-basis: auto;
+    max-height: none !important;
+    overflow: visible !important;
+    opacity: 1 !important;
+  }
+
+  .navbar-nav {
+    flex-direction: row;
+    align-items: center;
+  }
+}
+
+/* =========================================
    Infinite Loop Ticker (Marquee)
    ========================================= */
 
@@ -282,6 +305,23 @@
 @media (max-width: 767px) {
   .navbar-grid {
     display: flex !important; /* Fallback to standard flex on mobile */
+    flex-wrap: wrap;
+  }
+
+  /* Custom collapse transition (replaces react-transition-group) */
+  .navbar-collapse.collapse {
+    display: block;
+    max-height: 0;
+    overflow: hidden;
+    transition: max-height 0.35s ease, opacity 0.3s ease;
+    opacity: 0;
+    flex-basis: 100%;
+    width: 100%;
+  }
+
+  .navbar-collapse.collapse.show {
+    max-height: 600px;
+    opacity: 1;
   }
 
   .navbar-collapse {
@@ -325,18 +365,156 @@
 }
 
 /* =========================================
-   Hamburger icon
+   Mobile Language Toggle (top bar, compact)
+   ========================================= */
+
+.lang-toggle-mobile {
+  display: flex;
+  align-items: center;
+  margin-right: 8px;
+}
+
+.lang-toggle-mobile__btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 4px;
+  padding: 4px 10px;
+  background: rgba(var(--accent-blue-rgb), 0.08);
+  border: 1px solid rgba(var(--accent-blue-rgb), 0.25);
+  border-radius: 20px;
+  color: var(--text-primary);
+  font-size: 0.72rem;
+  font-weight: 600;
+  cursor: pointer;
+  transition: all 0.25s ease;
+  backdrop-filter: blur(8px);
+  white-space: nowrap;
+}
+
+.lang-toggle-mobile__btn:hover,
+.lang-toggle-mobile__btn:active {
+  background: rgba(var(--accent-blue-rgb), 0.18);
+  border-color: rgba(var(--accent-blue-rgb), 0.5);
+  box-shadow: 0 0 10px rgba(var(--accent-blue-rgb), 0.2);
+}
+
+.lang-toggle-mobile__flag {
+  font-size: 0.85rem;
+  line-height: 1;
+}
+
+.lang-toggle-mobile__code {
+  font-family: var(--font-inter), sans-serif;
+  letter-spacing: 0.5px;
+  text-transform: uppercase;
+}
+
+
+/* =========================================
+   Hamburger / X toggle (mobile only)
    ========================================= */
 
 .navbar-toggler {
-  border-color: rgba(var(--accent-blue-rgb), 0.4) !important;
+  border: 1.5px solid #fff !important;
   outline: none !important;
   box-shadow: none !important;
+  padding: 7px 7px;
+  background: transparent;
+  border-radius: 6px;
+  transition: all 0.25s ease;
+  cursor: pointer;
 }
 
-.navbar-toggler-icon {
-  filter: invert(1);
+.navbar-toggler:hover,
+.navbar-toggler:focus {
+  background: rgba(255, 255, 255, 0.1);
 }
+
+/* Custom 3-line icon */
+.navbar-toggler-icon {
+  background-image: none !important;
+  filter: none !important;
+  width: 22px;
+  height: 16px;
+  position: relative;
+  display: block;
+}
+
+/* Top and bottom lines */
+.navbar-toggler-icon::before,
+.navbar-toggler-icon::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  width: 100%;
+  height: 2px;
+  background: #fff;
+  border-radius: 2px;
+  transition: transform 0.3s ease, top 0.3s ease, bottom 0.3s ease, opacity 0.3s ease;
+}
+
+.navbar-toggler-icon::before {
+  top: 0;
+}
+
+.navbar-toggler-icon::after {
+  bottom: 0;
+}
+
+/* Middle line */
+.navbar-toggler-icon {
+  background:
+    linear-gradient(#fff, #fff) center / 100% 2px no-repeat;
+  transition: background 0.2s ease;
+}
+
+/* ---- X state (menu open = no .collapsed class) ---- */
+
+/* Hide middle line */
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+  background:
+    linear-gradient(#fff, #fff) center / 0% 2px no-repeat;
+}
+
+/* Rotate top line into \ */
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::before {
+  top: 50%;
+  transform: translateY(-50%) rotate(45deg);
+}
+
+/* Rotate bottom line into / */
+.navbar-toggler:not(.collapsed) .navbar-toggler-icon::after {
+  bottom: 50%;
+  transform: translateY(50%) rotate(-45deg);
+}
+
+/* ---- Light theme: black lines ---- */
+
+[data-theme='light'] .navbar-toggler {
+  border-color: #222 !important;
+}
+
+[data-theme='light'] .navbar-toggler:hover,
+[data-theme='light'] .navbar-toggler:focus {
+  background: rgba(0, 0, 0, 0.06);
+}
+
+[data-theme='light'] .navbar-toggler-icon::before,
+[data-theme='light'] .navbar-toggler-icon::after {
+  background: #222;
+}
+
+[data-theme='light'] .navbar-toggler-icon {
+  background:
+    linear-gradient(#222, #222) center / 100% 2px no-repeat;
+}
+
+[data-theme='light'] .navbar-toggler:not(.collapsed) .navbar-toggler-icon {
+  background:
+    linear-gradient(#222, #222) center / 0% 2px no-repeat;
+}
+
+
 
 /* =========================================
    Resume Dropdown

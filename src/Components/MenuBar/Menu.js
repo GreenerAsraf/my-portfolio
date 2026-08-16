@@ -1,7 +1,6 @@
 "use client";
 
-import React, { useState, useEffect } from "react";
-import { Button, Nav, Navbar } from "react-bootstrap";
+import React, { useState, useEffect, useRef, useCallback } from "react";
 import Link from "next/link";
 import { usePathname } from "next/navigation";
 import { useTheme } from "../ThemeProvider/ThemeProvider";
@@ -13,8 +12,15 @@ const Menu = () => {
   const { theme, toggleTheme } = useTheme();
   const { language, changeLanguage, t } = useLanguage();
   const [scrolled, setScrolled] = useState(false);
+  const [menuOpen, setMenuOpen] = useState(false);
+  const collapseRef = useRef(null);
 
   const isActive = (href) => pathname === href;
+
+  // Close mobile menu on route change
+  useEffect(() => {
+    setMenuOpen(false);
+  }, [pathname]);
 
   useEffect(() => {
     const onScroll = () => setScrolled(window.scrollY > 60);
@@ -22,9 +28,13 @@ const Menu = () => {
     return () => window.removeEventListener("scroll", onScroll);
   }, []);
 
+  const toggleMenu = useCallback(() => {
+    setMenuOpen((prev) => !prev);
+  }, []);
+
   return (
     <header className={`menu-header container-fluid ${scrolled ? "menu-header--scrolled" : ""}`}>
-      <Navbar expand="md" className="navbar-dark px-0 navbar-grid">
+      <nav className="navbar navbar-dark px-0 navbar-grid">
         <Link href="/" className="navbar-brand logo-container">
           <div className="logo-icon-wrap">
             <span className="logo-bracket">&lt;</span>
@@ -52,9 +62,37 @@ const Menu = () => {
           </div>
         </div>
 
-        <Navbar.Toggle aria-controls="basic-navbar-nav" />
-        <Navbar.Collapse id="basic-navbar-nav">
-          <Nav className="ml-auto align-items-center">
+        {/* Mobile-only: compact language toggle in top bar */}
+        <div className="lang-toggle-mobile d-md-none">
+          <button
+            className="lang-toggle-mobile__btn"
+            onClick={() => changeLanguage(language === "bn" ? "en" : "bn")}
+            aria-label="Switch Language"
+          >
+            <span className="lang-toggle-mobile__flag">{language === "bn" ? "🇧🇩" : "🇺🇸"}</span>
+            <span className="lang-toggle-mobile__code">{language === "bn" ? "বাং" : "EN"}</span>
+          </button>
+        </div>
+
+        {/* Custom hamburger toggle — replaces Navbar.Toggle */}
+        <button
+          className={`navbar-toggler${menuOpen ? "" : " collapsed"}`}
+          type="button"
+          aria-controls="basic-navbar-nav"
+          aria-expanded={menuOpen}
+          aria-label="Toggle navigation"
+          onClick={toggleMenu}
+        >
+          <span className="navbar-toggler-icon"></span>
+        </button>
+
+        {/* Custom collapse — replaces Navbar.Collapse */}
+        <div
+          ref={collapseRef}
+          className={`navbar-collapse collapse${menuOpen ? " show" : ""}`}
+          id="basic-navbar-nav"
+        >
+          <div className="navbar-nav ml-auto align-items-center">
             <Link
               href="/home"
               className={`nav-link ${isActive("/home") || isActive("/") ? "active" : ""}`}
@@ -92,8 +130,8 @@ const Menu = () => {
               {t.nav.contact}
             </Link>
 
-            {/* Language Switcher Dropdown */}
-            <div className="lang-dropdown ml-md-2 mr-md-2">
+            {/* Language Switcher Dropdown (desktop only — mobile uses top-bar toggle) */}
+            <div className="lang-dropdown ml-md-2 mr-md-2 d-none d-md-flex">
               <button className="lang-btn" aria-label="Select Language">
                 <span className="lang-flag">{language === "bn" ? "🇧🇩" : "🇺🇸"}</span>
                 <span className="lang-code">{language === "bn" ? "বাংলা" : "EN"}</span>
@@ -158,12 +196,11 @@ const Menu = () => {
                 </a>
               </div>
             </div>
-          </Nav>
-        </Navbar.Collapse>
-      </Navbar>
+          </div>
+        </div>
+      </nav>
     </header>
   );
 };
 
 export default Menu;
-
