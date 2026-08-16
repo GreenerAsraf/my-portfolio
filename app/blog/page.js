@@ -14,12 +14,12 @@ export const metadata = {
     "full stack developer blog",
     "Mohammed Asraf Uddin blog",
   ],
-  alternates: { canonical: "https://asrafuddin.vercel.app/blog" },
+  alternates: { canonical: "https://asrafuddin.netlify.app/blog" },
   openGraph: {
     title: "Blog | Mohammed Asraf Uddin — Web Development Articles",
     description:
       "Practical articles on JavaScript, React, Next.js, Node.js and more by Mohammed Asraf Uddin.",
-    url: "https://asrafuddin.vercel.app/blog",
+    url: "https://asrafuddin.netlify.app/blog",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {

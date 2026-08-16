@@ -11,12 +11,12 @@ export const metadata = {
     "Mohammed Asraf Uddin portfolio",
     "JavaScript developer for hire",
   ],
-  alternates: { canonical: "https://asrafuddin.vercel.app" },
+  alternates: { canonical: "https://asrafuddin.netlify.app" },
   openGraph: {
     title: "Mohammed Asraf Uddin | MERN Stack Developer Portfolio",
     description:
       "Explore full-stack projects built with React, Next.js, Node.js and MongoDB by Mohammed Asraf Uddin. Open to remote opportunities worldwide.",
-    url: "https://asrafuddin.vercel.app",
+    url: "https://asrafuddin.netlify.app",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {

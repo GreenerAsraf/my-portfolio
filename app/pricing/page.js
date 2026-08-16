@@ -13,12 +13,12 @@ export const metadata = {
     "web development packages",
     "Mohammed Asraf Uddin pricing",
   ],
-  alternates: { canonical: "https://asrafuddin.vercel.app/pricing" },
+  alternates: { canonical: "https://asrafuddin.netlify.app/pricing" },
   openGraph: {
     title: "Pricing | Mohammed Asraf Uddin — Freelance Web Development Rates",
     description:
       "Clear, affordable pricing for MERN stack, React.js and Next.js web development projects. Get a custom quote today.",
-    url: "https://asrafuddin.vercel.app/pricing",
+    url: "https://asrafuddin.netlify.app/pricing",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {

@@ -12,12 +12,12 @@ export const metadata = {
     "Mohammed Asraf Uddin contact",
     "web development inquiry",
   ],
-  alternates: { canonical: "https://asrafuddin.vercel.app/contact" },
+  alternates: { canonical: "https://asrafuddin.netlify.app/contact" },
   openGraph: {
     title: "Contact Mohammed Asraf Uddin | Hire a MERN Stack Developer",
     description:
       "Available for remote full-stack projects, freelance contracts and full-time roles. Let's build something great together.",
-    url: "https://asrafuddin.vercel.app/contact",
+    url: "https://asrafuddin.netlify.app/contact",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {

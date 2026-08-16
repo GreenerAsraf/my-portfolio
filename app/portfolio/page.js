@@ -15,12 +15,12 @@ export const metadata = {
     "PostgreSQL web app",
     "Node.js API projects",
   ],
-  alternates: { canonical: "https://asrafuddin.vercel.app/portfolio" },
+  alternates: { canonical: "https://asrafuddin.netlify.app/portfolio" },
   openGraph: {
     title: "Projects | Mohammed Asraf Uddin — MERN Stack Developer",
     description:
       "Real-world full-stack apps — SaaS platforms, e-commerce, community portals — built with React, Next.js, Node.js & MongoDB.",
-    url: "https://asrafuddin.vercel.app/portfolio",
+    url: "https://asrafuddin.netlify.app/portfolio",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {

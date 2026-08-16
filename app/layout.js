@@ -10,7 +10,7 @@ import ScrollToTop from "../src/Components/ScrollToTop/ScrollToTop";
 
 export const metadata = {
   // ── Core ──────────────────────────────────────────────────────────────────
-  metadataBase: new URL("https://asrafuddin.vercel.app"),
+  metadataBase: new URL("https://asrafuddin.netlify.app"),
   title: {
     default: "Mohammed Asraf Uddin | MERN Stack Developer",
     template: "%s | Mohammed Asraf Uddin",
@@ -53,7 +53,7 @@ export const metadata = {
     "web performance optimisation",
     "responsive web design",
   ],
-  authors: [{ name: "Mohammed Asraf Uddin", url: "https://asrafuddin.vercel.app" }],
+  authors: [{ name: "Mohammed Asraf Uddin", url: "https://asrafuddin.netlify.app" }],
   creator: "Mohammed Asraf Uddin",
   category: "Technology",
   robots: {
@@ -65,7 +65,7 @@ export const metadata = {
   openGraph: {
     type: "website",
     locale: "en_US",
-    url: "https://asrafuddin.vercel.app",
+    url: "https://asrafuddin.netlify.app",
     siteName: "Mohammed Asraf Uddin — Portfolio",
     title: "Mohammed Asraf Uddin | MERN Stack Developer",
     description:
@@ -90,7 +90,7 @@ export const metadata = {
   },
   // ── Canonical ─────────────────────────────────────────────────────────────
   alternates: {
-    canonical: "https://asrafuddin.vercel.app",
+    canonical: "https://asrafuddin.netlify.app",
   },
 };
 

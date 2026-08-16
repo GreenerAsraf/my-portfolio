@@ -13,12 +13,12 @@ export const metadata = {
     "remote developer available",
     "web developer Bangladesh",
   ],
-  alternates: { canonical: "https://asrafuddin.vercel.app/about" },
+  alternates: { canonical: "https://asrafuddin.netlify.app/about" },
   openGraph: {
     title: "About Mohammed Asraf Uddin | MERN Stack Developer",
     description:
       "2+ years building full-stack apps with React, Next.js, Node.js & MongoDB. Clean code. Great UX. Open to remote opportunities.",
-    url: "https://asrafuddin.vercel.app/about",
+    url: "https://asrafuddin.netlify.app/about",
     images: [{ url: "/og-image.png", width: 1200, height: 630 }],
   },
   twitter: {
